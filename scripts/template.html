@@ -4,7 +4,7 @@
 <style>
 /* 레이아웃: 터미널 세션처럼 한 줄 폭의 단일 칼럼. 프롬프트 줄 → 날짜와 일진 → 탭 → 풀이 블록. */
 :root {
-  --bg: #e8dbc4; --surface: #f1e6d3; --ink: #2d1e13; --muted: #76604c; --line: #cbb696;
+  --bg: #e8dbc4; --surface: #f1e6d3; --ink: #2d1e13; --muted: #6a5441; --line: #cbb696;
   --accent: #a94f2a; --accent-soft: #e2c9a8; --track: #d9c7a9;
   --wood: #55702f; --fire: #ad3b26; --earth: #8f6218; --metal: #6f675c; --water: #2b4f66;
   --good: #55702f; --care: #ad3b26;
@@ -23,7 +23,7 @@
   --good: #a3bd72; --care: #ea7a60; color-scheme: dark }
 
 * { box-sizing: border-box }
-body { background: var(--bg); color: var(--ink); font-family: var(--mono); font-size: 14.5px; line-height: 1.75; word-break: keep-all; overflow-wrap: anywhere }
+body { background: var(--bg); color: var(--ink); font-family: var(--mono); font-size: 16px; line-height: 1.9; word-break: keep-all; overflow-wrap: anywhere }
 .wrap { max-width: 780px; margin: 0 auto; padding-block: 28px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 20px }
 p { margin: 0 } h1, h2, h3 { margin: 0; font-weight: 700; text-wrap: balance }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer }
@@ -68,8 +68,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .who-name strong { display: block; font-size: 17px }
 .who-name small { color: var(--muted); font-size: 12.5px }
 .who-meta { color: var(--muted); font-size: 13px }
-.lede { font-size: 15.5px; max-width: 62ch }
-.lede.small { font-size: 14.5px; color: var(--muted) }
+.lede { font-size: 17px; max-width: 62ch }
+.lede.small { font-size: 15.5px; color: var(--muted) }
 .keywords { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px }
 .keywords li { padding: 1px 10px; background: var(--accent-soft); border-radius: 4px; font-size: 13px }
 .keywords li::before { content: '#'; color: var(--accent) }
@@ -77,20 +77,20 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px }
 .grid2 > * { min-width: 0 }
 .block { display: flex; flex-direction: column; gap: 8px; min-width: 0 }
-.block h3 { font-size: 13px; color: var(--accent); letter-spacing: 0.02em }
+.block h3 { font-size: 14.5px; color: var(--accent); letter-spacing: 0.02em }
 .block h3::before { content: '## '; opacity: .6 }
 .block p { max-width: 62ch }
 .block p + p { margin-top: 4px }
 .caution { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px }
 
 .scores, .elements { display: flex; flex-direction: column; gap: 6px }
-.score, .el { display: grid; grid-template-columns: 5.5em 1fr 2.5em; gap: 10px; align-items: center }
-.el { grid-template-columns: 2em 1fr 2.5em }
-.score-k { font-size: 13px }
+.score, .el { display: grid; grid-template-columns: 6em 1fr 2.5em; gap: 10px; align-items: center }
+.el { grid-template-columns: 3em 1fr 2.5em }
+.score-k { font-size: 14px }
 .score-v { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700 }
 .bar { height: 10px; background: var(--track); border-radius: 2px; overflow: hidden; display: block }
 .bar i { display: block; height: 100%; background: var(--accent); background-image: repeating-linear-gradient(90deg, transparent 0 6px, var(--track) 6px 8px) }
-.el-k { font-family: var(--hanja); font-weight: 700; font-size: 17px }
+.el-k { font-weight: 700 }
 .el-bar i { background-color: currentColor }
 
 .today-god { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px }
@@ -103,11 +103,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .t-충, .t-형, .t-천간충, .t-자형, .t-해, .t-원진, .t-파, .t-공망 { color: var(--care); border-color: currentColor }
 .t-육합, .t-반합, .t-천간합, .t-신살 { color: var(--good); border-color: currentColor }
 .t-복음 { color: var(--accent); border-color: currentColor }
-.plain li { font-size: 13px; padding-left: 1.2em; text-indent: -1.2em }
+.plain li { font-size: 14px; padding-left: 1.2em; text-indent: -1.2em }
 .plain li::before { content: '· '; color: var(--accent) }
 
-.timeline li { display: grid; grid-template-columns: 5.4em 3.2em 1fr; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px dashed var(--line) }
-.tl-time { font-variant-numeric: tabular-nums; font-size: 13px }
+.timeline li { display: grid; grid-template-columns: 9em 1fr; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px dashed var(--line) }
+.tl-time { font-variant-numeric: tabular-nums; font-size: 14px; font-weight: 700 }
+.points li { font-size: 15px }
 .tl-pillar .g { font-size: 17px }
 .tl-note b { font-size: 12px; margin-right: 4px }
 .tone-good b { color: var(--good) } .tone-care b { color: var(--care) } .tone-neutral b { color: var(--muted) }
@@ -117,9 +118,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .lucky dt { color: var(--muted); font-size: 13px } .lucky dd { margin: 0 }
 
 details { border-top: 1px dashed var(--line); padding-top: 8px }
-details > summary { cursor: pointer; color: var(--muted); font-size: 13px; padding: 4px 0 }
+details > summary { cursor: pointer; color: var(--muted); font-size: 14px; padding: 4px 0 }
 details[open] > summary { color: var(--ink); margin-bottom: 10px }
-details > .block + .block { margin-top: 16px }
+details > .block + .block { margin-top: 18px }
 
 .natal { display: flex; flex-direction: column; gap: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 18px 16px; margin-top: 8px }
 .natal h2 { font-size: 15px }
@@ -140,13 +141,13 @@ table { border-collapse: collapse; width: 100%; font-size: 13px }
 footer { border-top: 1px solid var(--line); padding-top: 16px; color: var(--muted); font-size: 12.5px; display: flex; flex-direction: column; gap: 6px }
 footer ul { margin: 0; padding-left: 1.2em }
 @media (max-width: 480px) {
-  body { font-size: 14px } .dateline h1 { font-size: 21px } .tabs button { padding: 10px 12px } .pillars .big .g { font-size: 30px }
-  .timeline li { grid-template-columns: 5em 1fr } .tl-note { grid-column: 1 / -1 }
+  body { font-size: 15.5px } .dateline h1 { font-size: 21px } .tabs button { padding: 10px 12px } .pillars .big .g { font-size: 30px }
+  .timeline li { grid-template-columns: 1fr }
 }
 </style>
 
 <div class="wrap">
-  <div class="cmd"><span><span class="prompt">❯</span> <b>unse</b> --who 榮地,伸赫 --date {{LATEST}}</span><span><span class="spark">✻</span> 매일 아침 6시에 새로 씁니다</span></div>
+  <div class="cmd"><span><span class="prompt">❯</span> <b>unse</b> --who 김영지,전신혁 --date {{LATEST}}</span><span><span class="spark">✻</span> 매일 아침 6시에 새로 씁니다</span></div>
   {{DATENAV}}
   {{DAYS}}
   <footer>

@@ -1,10 +1,36 @@
 {
   "yeongji": {
-    "name": "영지", "hanja": "榮地", "hanjaMeaning": ["영화로울 영", "땅 지"],
-    "birth": { "year": 1991, "month": 9, "day": 14, "hour": 14, "minute": 0 }
+    "name": "영지",
+    "hanja": "榮地",
+    "hanjaMeaning": [
+      "영화로울 영",
+      "땅 지"
+    ],
+    "birth": {
+      "year": 1991,
+      "month": 9,
+      "day": 14,
+      "hour": 14,
+      "minute": 0
+    },
+    "surname": "김",
+    "fullName": "김영지"
   },
   "shinhyuk": {
-    "name": "신혁", "hanja": "伸赫", "hanjaMeaning": ["펼 신", "빛날 혁"],
-    "birth": { "year": 1991, "month": 1, "day": 17, "hour": null, "minute": null }
+    "name": "신혁",
+    "hanja": "伸赫",
+    "hanjaMeaning": [
+      "펼 신",
+      "빛날 혁"
+    ],
+    "birth": {
+      "year": 1991,
+      "month": 1,
+      "day": 17,
+      "hour": null,
+      "minute": null
+    },
+    "surname": "전",
+    "fullName": "전신혁"
   }
 }

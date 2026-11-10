@@ -9,11 +9,11 @@ const read = (p) => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const paras = (s) => String(s ?? '').split(/\n\n+/).map((p) => `<p>${esc(p)}</p>`).join('');
 const EL_CLASS = { 木: 'wood', 火: 'fire', 土: 'earth', 金: 'metal', 水: 'water' };
-const EL_KO = { 木: '목', 火: '화', 土: '토', 金: '금', 水: '수' };
+const EL_KO = { 木: '나무', 火: '불', 土: '흙', 金: '쇠', 水: '물' };
 const STEM_EL = { 甲: '木', 乙: '木', 丙: '火', 丁: '火', 戊: '土', 己: '土', 庚: '金', 辛: '金', 壬: '水', 癸: '水' };
 const BRANCH_EL = { 子: '水', 丑: '土', 寅: '木', 卯: '木', 辰: '土', 巳: '火', 午: '火', 未: '土', 申: '金', 酉: '金', 戌: '土', 亥: '水' };
 const glyph = (ch) => `<span class="g ${EL_CLASS[STEM_EL[ch] ?? BRANCH_EL[ch]]}">${ch}</span>`;
-const SCORE_LABELS = [['total', '총운'], ['love', '애정'], ['money', '재물'], ['work', '일·학업'], ['health', '건강']];
+const SCORE_LABELS = [['total', '총운'], ['love', '부부 사이'], ['money', '돈'], ['work', '회사 일'], ['health', '건강']];
 const TONE = { good: '좋음', care: '주의', neutral: '보통' };
 
 const profile = read('data/profile.json');
@@ -45,7 +45,7 @@ ${row('12운성', (c) => esc(c.stage), 'small')}
 function elementBars(el) {
   const max = Math.max(...Object.values(el), 1);
   return `<div class="elements">${Object.entries(el).map(([k, v]) =>
-    `<div class="el"><span class="el-k ${EL_CLASS[k]}">${k}</span><span class="bar el-bar ${EL_CLASS[k]}" role="img" aria-label="${EL_KO[k]} ${v}개"><i style="width:${(v / max) * 100}%"></i></span><span class="score-v">${v}</span></div>`).join('')}</div>`;
+    `<div class="el"><span class="el-k ${EL_CLASS[k]}">${EL_KO[k]}</span><span class="bar el-bar ${EL_CLASS[k]}" role="img" aria-label="${EL_KO[k]} ${v}개"><i style="width:${(v / max) * 100}%"></i></span><span class="score-v">${v}</span></div>`).join('')}</div>`;
 }
 
 function relationList(rel, stars, voidDay) {
@@ -71,36 +71,37 @@ function personPanel(id, facts, reading, hidden) {
   const lucky = [['색', r.lucky.color], ['방향', r.lucky.direction], ['숫자', r.lucky.number], ['시간', r.lucky.time], ['곁에 둘 것', r.lucky.item]];
   return `<div class="panel" data-panel="${id}"${hidden ? ' hidden' : ''}>
 <header class="who">
-  <div class="who-name"><span class="hanja">${esc(p.hanja)}</span><span><strong>${esc(p.name)}</strong><small>${esc(p.hanjaMeaning.join(' · '))}</small></span></div>
-  <p class="who-meta">${esc(birth)} · ${esc(f.natal.dayMaster)} 일간 · ${esc(f.natal.animal)}띠</p>
+  <div class="who-name"><span class="hanja">${esc(p.hanja)}</span><span><strong>${esc(p.fullName ?? p.name)}</strong><small>${esc(p.hanjaMeaning.join(' · '))}</small></span></div>
+  <p class="who-meta">${esc(birth)} 출생 · ${esc(f.natal.animal)}띠 · 촛불의 기운</p>
 </header>
 <p class="lede">${esc(r.summary)}</p>
 <ul class="keywords">${r.keywords.map((k) => `<li>${esc(k)}</li>`).join('')}</ul>
 <div class="grid2">
   <section class="block"><h3>오늘의 점수</h3><div class="scores">${SCORE_LABELS.map(([k, l]) => scoreRow(l, r.scores[k])).join('')}</div></section>
-  <section class="block"><h3>오늘 기운이 닿는 자리</h3>
-    <p class="today-god">일진 ${glyph(facts.today.day.stem)}${glyph(facts.today.day.branch)} <span>${esc(t.day.stemGod)} · ${esc(t.day.branchGod)} · 12운성 ${esc(t.day.stage)}</span></p>
-    ${relationList(t.relations, t.stars, t.voidDay)}
-  </section>
+  <section class="block"><h3>오늘 한눈에</h3><ul class="plain points">${(r.points ?? []).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>
 </div>
 ${sections(r.sections)}
 <section class="block"><h3>시간대별 흐름</h3>
-  <ul class="timeline">${r.timeline.map((x) => `<li class="tone-${x.tone}"><span class="tl-time">${esc(x.time)}</span><span class="tl-pillar">${glyph(x.pillar[0])}${glyph(x.pillar[1])}</span><span class="tl-note"><b>${TONE[x.tone]}</b> ${esc(x.note)}</span></li>`).join('')}</ul>
-  <details><summary>열두 시진 전체 보기</summary>${hoursTable(t.hours)}</details>
+  <ul class="timeline">${r.timeline.map((x) => `<li class="tone-${x.tone}"><span class="tl-time">${esc(x.time)}</span><span class="tl-note"><b>${TONE[x.tone]}</b> ${esc(x.note)}</span></li>`).join('')}</ul>
+  
 </section>
 <div class="grid2">
-  <section class="block"><h3>오늘의 개운</h3><dl class="lucky">${lucky.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></section>
+  <section class="block"><h3>오늘 운을 돕는 것</h3><dl class="lucky">${lucky.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></section>
   <section class="block caution"><h3>한 가지만 조심</h3><p>${esc(r.caution)}</p></section>
 </div>
-<section class="natal"><h2><span class="prompt">❯</span> 원국 · ${esc(p.name)}의 사주</h2>
+<section class="natal"><h2><span class="prompt">❯</span> ${esc(p.name)}는 어떤 사람인가</h2>
   <p class="lede small">${esc(pf.oneLine)}</p>
-  ${pillarTable(f.natal)}
-  <div class="grid2">
-    <section class="block"><h3>오행 분포</h3>${elementBars(f.natal.elements)}</section>
+  <section class="block"><h3>타고난 다섯 기운</h3>${elementBars(f.natal.elements)}</section>
+  <details open><summary>타고난 성격 풀이</summary>${sections(pf.natalSections)}</details>
+  <details open><summary>이름 풀이 · ${esc(p.hanja)}</summary>${sections(pf.nameSections)}</details>
+  <details><summary>전문 용어로 보기 (사주 표, 오늘의 합과 충, 시간표)</summary>
+    <section class="block"><h3>사주 원국</h3>${pillarTable(f.natal)}</section>
     <section class="block"><h3>원국 안의 관계</h3><ul class="plain">${f.natal.internalRelations.map((x) => `<li>${esc(x)}</li>`).join('')}<li>공망 ${esc(f.natal.void.join('·'))}</li></ul></section>
-  </div>
-  <details><summary>사주 풀이 펼치기</summary>${sections(pf.natalSections)}</details>
-  <details><summary>이름 풀이 펼치기 · ${esc(p.hanja)}</summary>${sections(pf.nameSections)}</details>
+    <section class="block"><h3>오늘 일진과 원국</h3>
+      <p class="today-god">일진 ${glyph(facts.today.day.stem)}${glyph(facts.today.day.branch)} <span>${esc(t.day.stemGod)} · ${esc(t.day.branchGod)} · 12운성 ${esc(t.day.stage)}</span></p>
+      ${relationList(t.relations, t.stars, t.voidDay)}</section>
+    <section class="block"><h3>열두 시진</h3>${hoursTable(t.hours)}</section>
+  </details>
 </section>
 </div>`;
 }
@@ -108,15 +109,15 @@ ${sections(r.sections)}
 function couplePanel(facts, reading) {
   const c = reading.couple;
   return `<div class="panel" data-panel="couple" hidden>
-<header class="who"><div class="who-name"><span class="hanja">${esc(people.yeongji.hanja)} · ${esc(people.shinhyuk.hanja)}</span><span><strong>둘이서</strong><small>오늘의 궁합</small></span></div></header>
+<header class="who"><div class="who-name"><span class="hanja">${esc(people.yeongji.hanja)} · ${esc(people.shinhyuk.hanja)}</span><span><strong>부부</strong><small>김영지 · 전신혁</small></span></div></header>
 <p class="lede">${esc(c.summary)}</p>
-<section class="block"><h3>오늘의 궁합 점수</h3><div class="scores">${scoreRow('궁합', c.score)}</div></section>
+<section class="block"><h3>오늘 부부 점수</h3><div class="scores">${scoreRow('부부 사이', c.score)}</div></section>
 ${sections(c.sections)}
 <section class="block caution"><h3>오늘의 한마디</h3><p>${esc(c.tip)}</p></section>
-<section class="natal"><h2><span class="prompt">❯</span> 타고난 궁합</h2>
+<section class="natal"><h2><span class="prompt">❯</span> 두 사람은 어떤 부부인가</h2>
   <p class="lede small">${esc(profile.couple.oneLine)}</p>
   ${sections(profile.couple.sections)}
-  <details><summary>두 원국 사이의 합·충 전체</summary><ul class="plain">${facts.couple.natalRelations.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></details>
+  <details><summary>전문 용어로 보기 (두 사주 사이의 합과 충)</summary><ul class="plain">${facts.couple.natalRelations.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></details>
 </section>
 </div>`;
 }
@@ -125,18 +126,18 @@ function dayView(date, i) {
   const facts = read(`data/facts/${date}.json`), reading = read(`data/readings/${date}.json`);
   const [y, m, d] = date.split('-');
   const t = facts.today;
-  const chip = (p, unit) => `<span class="chip">${glyph(p.stem)}${glyph(p.branch)}<small>${p.ko}${unit}</small></span>`;
+  const chip = (p, unit) => `<span class="chip">${p.ko}${unit}<small>${p.stem}${p.branch}</small></span>`;
   return `<article class="day" data-date="${date}"${i ? ' hidden' : ''}>
 <div class="dateline">
   <h1>${y}년 ${+m}월 ${+d}일 <span>${facts.weekday}</span></h1>
-  <div class="chips">${chip(t.year, '년')}${chip(t.month, '월')}${chip(t.day, '일')}<span class="chip term"><small>절기</small>${esc(facts.solarTerm)}</span></div>
+  <div class="chips">${chip(t.year, '년')}${chip(t.month, '월')}${chip(t.day, '일')}<span class="chip term">${esc(facts.solarTerm)} 무렵</span></div>
 </div>
 <p class="headline">${esc(reading.headline)}</p>
 <p class="daynote">${esc(reading.dayNote)}</p>
 <nav class="tabs" role="tablist" aria-label="누구의 운세">
   <button role="tab" data-tab="yeongji" aria-selected="true">영지</button>
   <button role="tab" data-tab="shinhyuk" aria-selected="false">신혁</button>
-  <button role="tab" data-tab="couple" aria-selected="false">둘이서</button>
+  <button role="tab" data-tab="couple" aria-selected="false">부부</button>
 </nav>
 ${personPanel('yeongji', facts, reading, false)}
 ${personPanel('shinhyuk', facts, reading, true)}
