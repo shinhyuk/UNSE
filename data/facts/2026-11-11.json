@@ -1,0 +1,736 @@
+{
+  "date": "2026-11-11",
+  "weekday": "수요일",
+  "solarTerm": "입동",
+  "today": {
+    "year": {
+      "stem": "丙",
+      "branch": "午",
+      "ko": "병오",
+      "stemElement": "火",
+      "branchElement": "火",
+      "hidden": "丙己丁"
+    },
+    "month": {
+      "stem": "己",
+      "branch": "亥",
+      "ko": "기해",
+      "stemElement": "土",
+      "branchElement": "水",
+      "hidden": "戊甲壬"
+    },
+    "day": {
+      "stem": "己",
+      "branch": "丑",
+      "ko": "기축",
+      "stemElement": "土",
+      "branchElement": "土",
+      "hidden": "癸辛己"
+    },
+    "hour": {
+      "stem": "庚",
+      "branch": "午",
+      "ko": "경오",
+      "stemElement": "金",
+      "branchElement": "火",
+      "hidden": "丙己丁"
+    }
+  },
+  "people": {
+    "yeongji": {
+      "name": "영지",
+      "hanja": "榮地",
+      "natal": {
+        "chart": {
+          "year": {
+            "stem": "辛",
+            "branch": "未",
+            "ko": "신미",
+            "stemElement": "金",
+            "branchElement": "土",
+            "hidden": "丁乙己",
+            "stemGod": "편재",
+            "branchGod": "식신",
+            "hiddenGods": [
+              "丁 비견",
+              "乙 편인",
+              "己 식신"
+            ],
+            "stage": "관대"
+          },
+          "month": {
+            "stem": "丁",
+            "branch": "酉",
+            "ko": "정유",
+            "stemElement": "火",
+            "branchElement": "金",
+            "hidden": "庚辛",
+            "stemGod": "비견",
+            "branchGod": "편재",
+            "hiddenGods": [
+              "庚 정재",
+              "辛 편재"
+            ],
+            "stage": "장생"
+          },
+          "day": {
+            "stem": "丁",
+            "branch": "亥",
+            "ko": "정해",
+            "stemElement": "火",
+            "branchElement": "水",
+            "hidden": "戊甲壬",
+            "stemGod": "일간(나)",
+            "branchGod": "정관",
+            "hiddenGods": [
+              "戊 상관",
+              "甲 정인",
+              "壬 정관"
+            ],
+            "stage": "태"
+          },
+          "hour": {
+            "stem": "丁",
+            "branch": "未",
+            "ko": "정미",
+            "stemElement": "火",
+            "branchElement": "土",
+            "hidden": "丁乙己",
+            "stemGod": "비견",
+            "branchGod": "식신",
+            "hiddenGods": [
+              "丁 비견",
+              "乙 편인",
+              "己 식신"
+            ],
+            "stage": "관대"
+          }
+        },
+        "dayMaster": "丁火",
+        "animal": "양",
+        "bornInTerm": "백로",
+        "elements": {
+          "木": 0,
+          "火": 3,
+          "土": 2,
+          "金": 2,
+          "水": 1
+        },
+        "void": [
+          "午",
+          "未"
+        ],
+        "internalRelations": [
+          "년지·일지 未亥 (亥卯未 木국) (반합)",
+          "일지·시지 亥未 (亥卯未 木국) (반합)"
+        ],
+        "hourKnown": true
+      },
+      "today": {
+        "day": {
+          "stemGod": "식신",
+          "branchGod": "식신",
+          "stage": "묘",
+          "hiddenGods": [
+            "癸 편관",
+            "辛 편재",
+            "己 식신"
+          ]
+        },
+        "month": {
+          "stemGod": "식신",
+          "branchGod": "정관",
+          "stage": "태"
+        },
+        "year": {
+          "stemGod": "겁재",
+          "branchGod": "비견",
+          "stage": "건록"
+        },
+        "relations": [
+          {
+            "type": "충",
+            "note": "丑未충",
+            "with": "년지 未",
+            "from": "일진 丑"
+          },
+          {
+            "type": "형",
+            "note": "丑未형",
+            "with": "년지 未",
+            "from": "일진 丑"
+          },
+          {
+            "type": "반합",
+            "note": "丑酉 (巳酉丑 金국)",
+            "with": "월지 酉",
+            "from": "일진 丑"
+          },
+          {
+            "type": "충",
+            "note": "丑未충",
+            "with": "시지 未",
+            "from": "일진 丑"
+          },
+          {
+            "type": "형",
+            "note": "丑未형",
+            "with": "시지 未",
+            "from": "일진 丑"
+          },
+          {
+            "type": "반합",
+            "note": "亥未 (亥卯未 木국)",
+            "with": "년지 未",
+            "from": "월운 亥"
+          },
+          {
+            "type": "자형",
+            "note": "亥亥자형",
+            "with": "일지 亥",
+            "from": "월운 亥"
+          },
+          {
+            "type": "반합",
+            "note": "亥未 (亥卯未 木국)",
+            "with": "시지 未",
+            "from": "월운 亥"
+          },
+          {
+            "type": "천간합",
+            "note": "丙辛합 → 水",
+            "with": "년간 辛",
+            "from": "세운 丙"
+          },
+          {
+            "type": "육합",
+            "note": "午未합 → 火·土",
+            "with": "년지 未",
+            "from": "세운 午"
+          },
+          {
+            "type": "육합",
+            "note": "午未합 → 火·土",
+            "with": "시지 未",
+            "from": "세운 午"
+          }
+        ],
+        "stars": [],
+        "voidDay": false,
+        "hours": [
+          {
+            "time": "23–01시",
+            "pillar": "甲子",
+            "stemGod": "정인",
+            "branchGod": "편관",
+            "stage": "절",
+            "relations": [
+              "년지와 子未해",
+              "년지와 子未원진",
+              "월지와 子酉파",
+              "시지와 子未해",
+              "시지와 子未원진"
+            ],
+            "stars": [
+              "도화(일지 기준)",
+              "도화(년지 기준)"
+            ],
+            "void": false
+          },
+          {
+            "time": "01–03시",
+            "pillar": "乙丑",
+            "stemGod": "편인",
+            "branchGod": "식신",
+            "stage": "묘",
+            "relations": [
+              "년지와 丑未충",
+              "년지와 丑未형",
+              "월지와 丑酉 (巳酉丑 金국)",
+              "시지와 丑未충",
+              "시지와 丑未형"
+            ],
+            "stars": [],
+            "void": false
+          },
+          {
+            "time": "03–05시",
+            "pillar": "丙寅",
+            "stemGod": "겁재",
+            "branchGod": "정인",
+            "stage": "사",
+            "relations": [
+              "월지와 寅酉원진",
+              "일지와 寅亥합 → 木",
+              "일지와 寅亥파"
+            ],
+            "stars": [],
+            "void": false
+          },
+          {
+            "time": "05–07시",
+            "pillar": "丁卯",
+            "stemGod": "비견",
+            "branchGod": "편인",
+            "stage": "병",
+            "relations": [
+              "년지와 卯未 (亥卯未 木국)",
+              "월지와 卯酉충",
+              "일지와 卯亥 (亥卯未 木국)",
+              "시지와 卯未 (亥卯未 木국)"
+            ],
+            "stars": [],
+            "void": false
+          },
+          {
+            "time": "07–09시",
+            "pillar": "戊辰",
+            "stemGod": "상관",
+            "branchGod": "상관",
+            "stage": "쇠",
+            "relations": [
+              "월지와 辰酉합 → 金",
+              "일지와 辰亥원진"
+            ],
+            "stars": [],
+            "void": false
+          },
+          {
+            "time": "09–11시",
+            "pillar": "己巳",
+            "stemGod": "식신",
+            "branchGod": "겁재",
+            "stage": "제왕",
+            "relations": [
+              "월지와 巳酉 (巳酉丑 金국)",
+              "일지와 巳亥충"
+            ],
+            "stars": [
+              "역마(일지 기준)",
+              "역마(년지 기준)"
+            ],
+            "void": false
+          },
+          {
+            "time": "11–13시",
+            "pillar": "庚午",
+            "stemGod": "정재",
+            "branchGod": "비견",
+            "stage": "건록",
+            "relations": [
+              "년지와 午未합 → 火·土",
+              "시지와 午未합 → 火·土"
+            ],
+            "stars": [],
+            "void": true
+          },
+          {
+            "time": "13–15시",
+            "pillar": "辛未",
+            "stemGod": "편재",
+            "branchGod": "식신",
+            "stage": "관대",
+            "relations": [
+              "일지와 未亥 (亥卯未 木국)"
+            ],
+            "stars": [
+              "화개(일지 기준)",
+              "화개(년지 기준)"
+            ],
+            "void": true
+          },
+          {
+            "time": "15–17시",
+            "pillar": "壬申",
+            "stemGod": "정관",
+            "branchGod": "정재",
+            "stage": "목욕",
+            "relations": [
+              "일지와 申亥해"
+            ],
+            "stars": [],
+            "void": false
+          },
+          {
+            "time": "17–19시",
+            "pillar": "癸酉",
+            "stemGod": "편관",
+            "branchGod": "편재",
+            "stage": "장생",
+            "relations": [
+              "월지와 酉酉자형"
+            ],
+            "stars": [
+              "천을귀인"
+            ],
+            "void": false
+          },
+          {
+            "time": "19–21시",
+            "pillar": "甲戌",
+            "stemGod": "정인",
+            "branchGod": "상관",
+            "stage": "양",
+            "relations": [
+              "년지와 戌未형",
+              "년지와 戌未파",
+              "월지와 戌酉해",
+              "시지와 戌未형",
+              "시지와 戌未파"
+            ],
+            "stars": [],
+            "void": false
+          },
+          {
+            "time": "21–23시",
+            "pillar": "乙亥",
+            "stemGod": "편인",
+            "branchGod": "정관",
+            "stage": "태",
+            "relations": [
+              "년지와 亥未 (亥卯未 木국)",
+              "일지와 亥亥자형",
+              "시지와 亥未 (亥卯未 木국)"
+            ],
+            "stars": [
+              "천을귀인"
+            ],
+            "void": false
+          }
+        ]
+      }
+    },
+    "shinhyuk": {
+      "name": "신혁",
+      "hanja": "伸赫",
+      "natal": {
+        "chart": {
+          "year": {
+            "stem": "庚",
+            "branch": "午",
+            "ko": "경오",
+            "stemElement": "金",
+            "branchElement": "火",
+            "hidden": "丙己丁",
+            "stemGod": "정재",
+            "branchGod": "비견",
+            "hiddenGods": [
+              "丙 겁재",
+              "己 식신",
+              "丁 비견"
+            ],
+            "stage": "건록"
+          },
+          "month": {
+            "stem": "己",
+            "branch": "丑",
+            "ko": "기축",
+            "stemElement": "土",
+            "branchElement": "土",
+            "hidden": "癸辛己",
+            "stemGod": "식신",
+            "branchGod": "식신",
+            "hiddenGods": [
+              "癸 편관",
+              "辛 편재",
+              "己 식신"
+            ],
+            "stage": "묘"
+          },
+          "day": {
+            "stem": "丁",
+            "branch": "亥",
+            "ko": "정해",
+            "stemElement": "火",
+            "branchElement": "水",
+            "hidden": "戊甲壬",
+            "stemGod": "일간(나)",
+            "branchGod": "정관",
+            "hiddenGods": [
+              "戊 상관",
+              "甲 정인",
+              "壬 정관"
+            ],
+            "stage": "태"
+          }
+        },
+        "dayMaster": "丁火",
+        "animal": "말",
+        "bornInTerm": "소한",
+        "elements": {
+          "木": 0,
+          "火": 2,
+          "土": 2,
+          "金": 1,
+          "水": 1
+        },
+        "void": [
+          "午",
+          "未"
+        ],
+        "internalRelations": [
+          "년지·월지 午丑해 (해)",
+          "년지·월지 午丑원진 (원진)"
+        ],
+        "hourKnown": false
+      },
+      "today": {
+        "day": {
+          "stemGod": "식신",
+          "branchGod": "식신",
+          "stage": "묘",
+          "hiddenGods": [
+            "癸 편관",
+            "辛 편재",
+            "己 식신"
+          ]
+        },
+        "month": {
+          "stemGod": "식신",
+          "branchGod": "정관",
+          "stage": "태"
+        },
+        "year": {
+          "stemGod": "겁재",
+          "branchGod": "비견",
+          "stage": "건록"
+        },
+        "relations": [
+          {
+            "type": "해",
+            "note": "丑午해",
+            "with": "년지 午",
+            "from": "일진 丑"
+          },
+          {
+            "type": "원진",
+            "note": "丑午원진",
+            "with": "년지 午",
+            "from": "일진 丑"
+          },
+          {
+            "type": "복음",
+            "note": "己丑 같은 기둥",
+            "with": "월주 己丑",
+            "from": "일진 己丑"
+          },
+          {
+            "type": "자형",
+            "note": "亥亥자형",
+            "with": "일지 亥",
+            "from": "월운 亥"
+          },
+          {
+            "type": "자형",
+            "note": "午午자형",
+            "with": "년지 午",
+            "from": "세운 午"
+          },
+          {
+            "type": "해",
+            "note": "午丑해",
+            "with": "월지 丑",
+            "from": "세운 午"
+          },
+          {
+            "type": "원진",
+            "note": "午丑원진",
+            "with": "월지 丑",
+            "from": "세운 午"
+          }
+        ],
+        "stars": [],
+        "voidDay": false,
+        "hours": [
+          {
+            "time": "23–01시",
+            "pillar": "甲子",
+            "stemGod": "정인",
+            "branchGod": "편관",
+            "stage": "절",
+            "relations": [
+              "년지와 子午충",
+              "월지와 子丑합 → 土"
+            ],
+            "stars": [
+              "도화(일지 기준)"
+            ],
+            "void": false
+          },
+          {
+            "time": "01–03시",
+            "pillar": "乙丑",
+            "stemGod": "편인",
+            "branchGod": "식신",
+            "stage": "묘",
+            "relations": [
+              "년지와 丑午해",
+              "년지와 丑午원진"
+            ],
+            "stars": [],
+            "void": false
+          },
+          {
+            "time": "03–05시",
+            "pillar": "丙寅",
+            "stemGod": "겁재",
+            "branchGod": "정인",
+            "stage": "사",
+            "relations": [
+              "년지와 寅午 (寅午戌 火국)",
+              "일지와 寅亥합 → 木",
+              "일지와 寅亥파"
+            ],
+            "stars": [],
+            "void": false
+          },
+          {
+            "time": "05–07시",
+            "pillar": "丁卯",
+            "stemGod": "비견",
+            "branchGod": "편인",
+            "stage": "병",
+            "relations": [
+              "년지와 卯午파",
+              "일지와 卯亥 (亥卯未 木국)"
+            ],
+            "stars": [
+              "도화(년지 기준)"
+            ],
+            "void": false
+          },
+          {
+            "time": "07–09시",
+            "pillar": "戊辰",
+            "stemGod": "상관",
+            "branchGod": "상관",
+            "stage": "쇠",
+            "relations": [
+              "월지와 辰丑파",
+              "일지와 辰亥원진"
+            ],
+            "stars": [],
+            "void": false
+          },
+          {
+            "time": "09–11시",
+            "pillar": "己巳",
+            "stemGod": "식신",
+            "branchGod": "겁재",
+            "stage": "제왕",
+            "relations": [
+              "월지와 巳丑 (巳酉丑 金국)",
+              "일지와 巳亥충"
+            ],
+            "stars": [
+              "역마(일지 기준)"
+            ],
+            "void": false
+          },
+          {
+            "time": "11–13시",
+            "pillar": "庚午",
+            "stemGod": "정재",
+            "branchGod": "비견",
+            "stage": "건록",
+            "relations": [
+              "년지와 午午자형",
+              "월지와 午丑해",
+              "월지와 午丑원진"
+            ],
+            "stars": [],
+            "void": true
+          },
+          {
+            "time": "13–15시",
+            "pillar": "辛未",
+            "stemGod": "편재",
+            "branchGod": "식신",
+            "stage": "관대",
+            "relations": [
+              "년지와 未午합 → 火·土",
+              "월지와 未丑충",
+              "월지와 未丑형",
+              "일지와 未亥 (亥卯未 木국)"
+            ],
+            "stars": [
+              "화개(일지 기준)"
+            ],
+            "void": true
+          },
+          {
+            "time": "15–17시",
+            "pillar": "壬申",
+            "stemGod": "정관",
+            "branchGod": "정재",
+            "stage": "목욕",
+            "relations": [
+              "일지와 申亥해"
+            ],
+            "stars": [
+              "역마(년지 기준)"
+            ],
+            "void": false
+          },
+          {
+            "time": "17–19시",
+            "pillar": "癸酉",
+            "stemGod": "편관",
+            "branchGod": "편재",
+            "stage": "장생",
+            "relations": [
+              "월지와 酉丑 (巳酉丑 金국)"
+            ],
+            "stars": [
+              "천을귀인"
+            ],
+            "void": false
+          },
+          {
+            "time": "19–21시",
+            "pillar": "甲戌",
+            "stemGod": "정인",
+            "branchGod": "상관",
+            "stage": "양",
+            "relations": [
+              "년지와 戌午 (寅午戌 火국)",
+              "월지와 戌丑형"
+            ],
+            "stars": [
+              "화개(년지 기준)"
+            ],
+            "void": false
+          },
+          {
+            "time": "21–23시",
+            "pillar": "乙亥",
+            "stemGod": "편인",
+            "branchGod": "정관",
+            "stage": "태",
+            "relations": [
+              "일지와 亥亥자형"
+            ],
+            "stars": [
+              "천을귀인"
+            ],
+            "void": false
+          }
+        ]
+      }
+    }
+  },
+  "couple": {
+    "natalRelations": [
+      "영지 년지 未 × 신혁 년지 午: 未午합 → 火·土 (육합)",
+      "영지 년지 未 × 신혁 월지 丑: 未丑충 (충)",
+      "영지 년지 未 × 신혁 월지 丑: 未丑형 (형)",
+      "영지 년지 未 × 신혁 일지 亥: 未亥 (亥卯未 木국) (반합)",
+      "영지 월지 酉 × 신혁 월지 丑: 酉丑 (巳酉丑 金국) (반합)",
+      "영지 일지 亥 × 신혁 일지 亥: 亥亥자형 (자형)",
+      "영지 시지 未 × 신혁 년지 午: 未午합 → 火·土 (육합)",
+      "영지 시지 未 × 신혁 월지 丑: 未丑충 (충)",
+      "영지 시지 未 × 신혁 월지 丑: 未丑형 (형)",
+      "영지 시지 未 × 신혁 일지 亥: 未亥 (亥卯未 木국) (반합)"
+    ]
+  }
+}
