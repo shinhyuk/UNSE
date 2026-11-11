@@ -138,6 +138,29 @@ table { border-collapse: collapse; width: 100%; font-size: 13px }
 .hours td.marks { white-space: normal; color: var(--muted); font-size: 12px; min-width: 14em }
 .hours .g { font-size: 16px }
 
+.ask { display: flex; flex-direction: column; gap: 12px; border-top: 1px solid var(--line); padding-top: 20px }
+.ask h2 { font-size: 17px }
+.ask-chips { display: flex; flex-wrap: wrap; gap: 6px }
+.ask-chips button { padding: 4px 10px; border: 1px solid var(--line); border-radius: 4px; font-size: 14px; background: var(--surface) }
+.ask-chips button:hover { border-color: var(--accent) }
+.ask-log { display: flex; flex-direction: column; gap: 14px }
+.ask-msg { display: flex; flex-direction: column; gap: 2px }
+.ask-who { font-size: 13px; color: var(--accent); font-weight: 700 }
+.ask-msg p { white-space: pre-wrap; max-width: 62ch }
+.ask-user p { color: var(--muted) }
+.ask-assistant { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px }
+.ask-assistant p:empty::after { content: '…'; color: var(--muted) }
+.ask-error p { color: var(--care) }
+.ask-form { display: flex; gap: 8px; align-items: stretch }
+.ask-form textarea, .ask-key input { flex: 1; min-width: 0; font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; resize: vertical }
+.ask-form button, .ask-key button { padding: 6px 16px; border-radius: 6px; background: var(--ink); color: var(--bg); font-weight: 700 }
+.ask-form button:disabled { opacity: .5; cursor: default }
+.ask-key { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px }
+.ask-key label { font-size: 14px; width: 100% }
+.ask-key button { background: none; color: var(--ink); border: 1px solid var(--line); font-weight: 400 }
+.ask-status:empty { display: none }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0) }
+
 footer { border-top: 1px solid var(--line); padding-top: 16px; color: var(--muted); font-size: 12.5px; display: flex; flex-direction: column; gap: 6px }
 footer ul { margin: 0; padding-left: 1.2em }
 @media (max-width: 480px) {
@@ -262,6 +285,7 @@ footer ul { margin: 0; padding-left: 1.2em }
 </section>
 </div>
 </article>
+  
   <footer>
     <ul><li>생년월일은 양력으로, 시각은 한국 시간 그대로 계산했습니다.</li><li>신혁은 태어난 시각을 몰라 사주의 세 기둥만으로 봤습니다.</li><li>이름 풀이는 글자의 뜻과 기운으로 봤고, 획수 풀이는 넣지 않았습니다.</li></ul>
     <p>운세는 하루를 돌아보는 재미로 읽어 주세요. 중요한 결정의 근거로 삼지는 마세요.</p>
@@ -288,3 +312,4 @@ footer ul { margin: 0; padding-left: 1.2em }
   if (saved && document.querySelector('.panel[data-panel="' + saved + '"]')) showTab(saved);
 })();
 </script>
+

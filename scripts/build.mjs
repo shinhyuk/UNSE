@@ -148,11 +148,33 @@ ${couplePanel(facts, reading)}
 const template = fs.readFileSync(path.join(ROOT, 'scripts/template.html'), 'utf8');
 const dateNav = dates.length > 1
   ? `<nav class="dates" aria-label="지난 운세">${dates.map((d, i) => `<button data-date="${d}" aria-pressed="${i === 0}">${+d.slice(5, 7)}.${d.slice(8)}</button>`).join('')}</nav>` : '';
-const html = template
+const fill = (ask, askScript) => template
   .replace('{{LATEST}}', dates[0])
   .replace('{{DATENAV}}', dateNav)
-  .replace('{{DAYS}}', dates.map(dayView).join('\n'))
-  .replace('{{NOTES}}', profile.notes.map((n) => `<li>${esc(n)}</li>`).join(''));
+  .replace('{{DAYS}}', () => dates.map(dayView).join('\n'))
+  .replace('{{NOTES}}', profile.notes.map((n) => `<li>${esc(n)}</li>`).join(''))
+  .replace('{{ASK}}', () => ask)
+  .replace('{{ASKSCRIPT}}', () => askScript);
+
+// 1) 아티팩트용 (질문 기능 없음: 아티팩트에서는 외부 API 호출이 막혀 있다)
+const artifact = fill('', '');
 fs.mkdirSync(path.join(ROOT, 'site'), { recursive: true });
-fs.writeFileSync(path.join(ROOT, 'site/unse.html'), html);
-console.log(`site/unse.html ← ${dates.join(', ')} (${(html.length / 1024).toFixed(0)} KB)`);
+fs.writeFileSync(path.join(ROOT, 'site/unse.html'), artifact);
+
+// 2) GitHub Pages 용 (docs/index.html): 질문하기 + Claude 에게 넘길 자료 포함
+const latestFacts = read(`data/facts/${dates[0]}.json`);
+const context = {
+  상황: fs.readFileSync(path.join(ROOT, 'data/context.md'), 'utf8'),
+  사람: people,
+  타고난_풀이: profile,
+  오늘_계산값: latestFacts,
+  오늘_운세: read(`data/readings/${dates[0]}.json`),
+};
+const ctxJson = JSON.stringify(context).replace(/</g, '\\u003c');
+const askScript = `<script type="application/json" id="unse-context">${ctxJson}</script>\n<script>\n${fs.readFileSync(path.join(ROOT, 'scripts/ask.js'), 'utf8')}</script>`;
+const head = '<!doctype html>\n<html lang="ko">\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n<meta name="robots" content="noindex, nofollow">\n<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>\n';
+const pages = head + fill(fs.readFileSync(path.join(ROOT, 'scripts/ask.html'), 'utf8'), askScript) + '</html>\n';
+fs.mkdirSync(path.join(ROOT, 'docs'), { recursive: true });
+fs.writeFileSync(path.join(ROOT, 'docs/index.html'), pages);
+fs.writeFileSync(path.join(ROOT, 'docs/.nojekyll'), '');
+console.log(`site/unse.html, docs/index.html ← ${dates.join(', ')} (${(pages.length / 1024).toFixed(0)} KB)`);

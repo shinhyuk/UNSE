@@ -18,7 +18,9 @@
      이름 풀이는 `data/profile.json` 의 nameSections (榮 木 · 地 土 · 伸 火 · 赫 火) 를 그날의 오행과 엮는다.
    - 두 사람은 일주가 같으므로(丁亥) 년·월·시주와 이름에서 갈리는 차이를 분명히 쓴다.
    - 전날 글을 베끼지 않는다. 점수도 그날 근거에 맞게 새로 매긴다.
-4. `node scripts/build.mjs` — `site/unse.html` 을 다시 만든다 (최근 7일치 포함).
+4. `node scripts/build.mjs` — `site/unse.html` (아티팩트용) 과 `docs/index.html` (GitHub Pages 용, 질문하기 포함) 을 다시 만든다.
 5. Artifact 도구로 `site/unse.html` 을 아래 주소에 다시 게시한다 (`url` 지정, icon 생략).
    - 아티팩트: https://claude.ai/artifact/FGU9uNogwy9KcggftQx4uu
-6. `data/`, `site/` 변경을 커밋하고 `git push -u origin claude/relaxed-cerf-ves498`. PR 은 만들지 않는다.
+6. `data/`, `site/`, `docs/` 변경을 커밋하고 `git push -u origin claude/relaxed-cerf-ves498`. PR 은 만들지 않는다.
+
+GitHub Pages 는 이 브랜치의 `/docs` 폴더를 게시한다. 푸시하면 Pages 가 자동으로 갱신된다.
