@@ -1,0 +1,44 @@
+# 운세 페이지를 빌드해서 GitHub Pages 에 올린다.
+# 매일 아침 운세가 커밋되어 푸시될 때마다, 또는 Actions 탭에서 직접 실행할 때 돈다.
+name: Deploy Pages
+
+on:
+  push:
+    branches:
+      - claude/relaxed-cerf-ves498
+      - main
+    paths:
+      - 'data/**'
+      - 'scripts/**'
+      - 'docs/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build page
+        run: node scripts/build.mjs
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deployment
+        uses: actions/deploy-pages@v4

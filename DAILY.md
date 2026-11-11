@@ -23,4 +23,4 @@
    - 아티팩트: https://claude.ai/artifact/FGU9uNogwy9KcggftQx4uu
 6. `data/`, `site/`, `docs/` 변경을 커밋하고 `git push -u origin claude/relaxed-cerf-ves498`. PR 은 만들지 않는다.
 
-GitHub Pages 는 이 브랜치의 `/docs` 폴더를 게시한다. 푸시하면 Pages 가 자동으로 갱신된다.
+GitHub Pages 는 GitHub Actions(`.github/workflows/pages.yml`)로 게시한다. 푸시하면 워크플로가 페이지를 빌드해 올린다.
