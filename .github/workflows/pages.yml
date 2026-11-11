@@ -12,6 +12,10 @@ on:
       - 'scripts/**'
       - 'docs/**'
       - '.github/workflows/pages.yml'
+  # 푸시로 시작된 배포가 GitHub 쪽에서 멈췄을 때를 대비한 안전망 (한국 시간 06:10, 08:10)
+  schedule:
+    - cron: '10 21 * * *'
+    - cron: '10 23 * * *'
   workflow_dispatch:
 
 permissions:
