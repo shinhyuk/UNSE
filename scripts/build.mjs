@@ -22,7 +22,13 @@ const dates = fs.readdirSync(path.join(ROOT, 'data/readings')).filter((f) => /^\
   .map((f) => f.slice(0, 10)).filter((d) => fs.existsSync(path.join(ROOT, 'data/facts', `${d}.json`))).sort().slice(-7).reverse();
 if (!dates.length) throw new Error('data/readings 에 운세가 없습니다.');
 
-function scoreRow(label, v) {
+const todoLists = (r) => (r.dos || r.donts) ? `<div class="grid2 todo">
+  <section class="block do"><h3>오늘 하면 좋은 일</h3><ul class="check">${(r.dos ?? []).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>
+  <section class="block dont"><h3>오늘은 참는 일</h3><ul class="check">${(r.donts ?? []).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>
+</div>` : '';
+
+function scoreRow(label, v, note) {
+  if (note) return `<div class="score-wrap">${scoreRow(label, v)}<p class="score-note">${esc(note)}</p></div>`;
   return `<div class="score"><span class="score-k">${label}</span><span class="bar" role="img" aria-label="${label} ${v}점"><i style="width:${v}%"></i></span><span class="score-v">${v}</span></div>`;
 }
 
@@ -62,7 +68,8 @@ function hoursTable(hours) {
   }).join('')}</tbody></table></div>`;
 }
 
-const sections = (list) => list.map((s) => `<section class="block"><h3>${esc(s.title)}</h3>${paras(s.body)}</section>`).join('');
+const sections = (list) => list.map((s) => `<section class="block"><h3>${esc(s.title)}</h3>${paras(s.body)}${
+  s.examples?.length ? `<div class="examples"><span>예를 들면</span><ul>${s.examples.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div>` : ''}</section>`).join('');
 
 function personPanel(id, facts, reading, hidden) {
   const f = facts.people[id], r = reading.people[id], pf = profile.people[id], p = people[id];
@@ -77,9 +84,10 @@ function personPanel(id, facts, reading, hidden) {
 <p class="lede">${esc(r.summary)}</p>
 <ul class="keywords">${r.keywords.map((k) => `<li>${esc(k)}</li>`).join('')}</ul>
 <div class="grid2">
-  <section class="block"><h3>오늘의 점수</h3><div class="scores">${SCORE_LABELS.map(([k, l]) => scoreRow(l, r.scores[k])).join('')}</div></section>
+  <section class="block"><h3>오늘의 점수</h3><div class="scores">${SCORE_LABELS.map(([k, l]) => scoreRow(l, r.scores[k], r.scoreNotes?.[k])).join('')}</div></section>
   <section class="block"><h3>오늘 한눈에</h3><ul class="plain points">${(r.points ?? []).map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>
 </div>
+${todoLists(r)}
 ${sections(r.sections)}
 <section class="block"><h3>시간대별 흐름</h3>
   <ul class="timeline">${r.timeline.map((x) => `<li class="tone-${x.tone}"><span class="tl-time">${esc(x.time)}</span><span class="tl-note"><b>${TONE[x.tone]}</b> ${esc(x.note)}</span></li>`).join('')}</ul>
@@ -111,7 +119,8 @@ function couplePanel(facts, reading) {
   return `<div class="panel" data-panel="couple" hidden>
 <header class="who"><div class="who-name"><span class="hanja">${esc(people.yeongji.hanja)} · ${esc(people.shinhyuk.hanja)}</span><span><strong>부부</strong><small>김영지 · 전신혁</small></span></div></header>
 <p class="lede">${esc(c.summary)}</p>
-<section class="block"><h3>오늘 부부 점수</h3><div class="scores">${scoreRow('부부 사이', c.score)}</div></section>
+<section class="block"><h3>오늘 부부 점수</h3><div class="scores">${scoreRow('부부 사이', c.score, c.scoreNote)}</div></section>
+${todoLists(c)}
 ${sections(c.sections)}
 <section class="block caution"><h3>오늘의 한마디</h3><p>${esc(c.tip)}</p></section>
 <section class="natal"><h2><span class="prompt">❯</span> 두 사람은 어떤 부부인가</h2>
@@ -133,6 +142,7 @@ function dayView(date, i) {
   <div class="chips">${chip(t.year, '년')}${chip(t.month, '월')}${chip(t.day, '일')}<span class="chip term">${esc(facts.solarTerm)} 무렵</span></div>
 </div>
 <p class="headline">${esc(reading.headline)}</p>
+${reading.weather ? `<p class="weather">${esc(reading.weather)}</p>` : ''}
 <p class="daynote">${esc(reading.dayNote)}</p>
 <nav class="tabs" role="tablist" aria-label="누구의 운세">
   <button role="tab" data-tab="yeongji" aria-selected="true">영지</button>
@@ -148,33 +158,19 @@ ${couplePanel(facts, reading)}
 const template = fs.readFileSync(path.join(ROOT, 'scripts/template.html'), 'utf8');
 const dateNav = dates.length > 1
   ? `<nav class="dates" aria-label="지난 운세">${dates.map((d, i) => `<button data-date="${d}" aria-pressed="${i === 0}">${+d.slice(5, 7)}.${d.slice(8)}</button>`).join('')}</nav>` : '';
-const fill = (ask, askScript) => template
+const body = template
   .replace('{{LATEST}}', dates[0])
   .replace('{{DATENAV}}', dateNav)
   .replace('{{DAYS}}', () => dates.map(dayView).join('\n'))
-  .replace('{{NOTES}}', profile.notes.map((n) => `<li>${esc(n)}</li>`).join(''))
-  .replace('{{ASK}}', () => ask)
-  .replace('{{ASKSCRIPT}}', () => askScript);
+  .replace('{{NOTES}}', profile.notes.map((n) => `<li>${esc(n)}</li>`).join(''));
 
-// 1) 아티팩트용 (질문 기능 없음: 아티팩트에서는 외부 API 호출이 막혀 있다)
-const artifact = fill('', '');
+// 1) 아티팩트용
 fs.mkdirSync(path.join(ROOT, 'site'), { recursive: true });
-fs.writeFileSync(path.join(ROOT, 'site/unse.html'), artifact);
+fs.writeFileSync(path.join(ROOT, 'site/unse.html'), body);
 
-// 2) GitHub Pages 용 (docs/index.html): 질문하기 + Claude 에게 넘길 자료 포함
-const latestFacts = read(`data/facts/${dates[0]}.json`);
-const context = {
-  상황: fs.readFileSync(path.join(ROOT, 'data/context.md'), 'utf8'),
-  사람: people,
-  타고난_풀이: profile,
-  오늘_계산값: latestFacts,
-  오늘_운세: read(`data/readings/${dates[0]}.json`),
-};
-const ctxJson = JSON.stringify(context).replace(/</g, '\\u003c');
-const askScript = `<script type="application/json" id="unse-context">${ctxJson}</script>\n<script>\n${fs.readFileSync(path.join(ROOT, 'scripts/ask.js'), 'utf8')}</script>`;
+// 2) GitHub Pages 용 (docs/index.html)
 const head = '<!doctype html>\n<html lang="ko">\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n<meta name="robots" content="noindex, nofollow">\n<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>\n';
-const pages = head + fill(fs.readFileSync(path.join(ROOT, 'scripts/ask.html'), 'utf8'), askScript) + '</html>\n';
 fs.mkdirSync(path.join(ROOT, 'docs'), { recursive: true });
-fs.writeFileSync(path.join(ROOT, 'docs/index.html'), pages);
+fs.writeFileSync(path.join(ROOT, 'docs/index.html'), head + body + '</html>\n');
 fs.writeFileSync(path.join(ROOT, 'docs/.nojekyll'), '');
-console.log(`site/unse.html, docs/index.html ← ${dates.join(', ')} (${(pages.length / 1024).toFixed(0)} KB)`);
+console.log(`site/unse.html, docs/index.html ← ${dates.join(', ')} (${(body.length / 1024).toFixed(0)} KB)`);

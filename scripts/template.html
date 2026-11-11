@@ -61,7 +61,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .tabs button[aria-selected="true"] { color: var(--ink); font-weight: 700; border-bottom-color: var(--accent) }
 .tabs button[aria-selected="true"]::before { content: '❯ '; color: var(--accent) }
 
-.panel { display: flex; flex-direction: column; gap: 18px }
+.panel { display: flex; flex-direction: column; gap: 28px }
 .who { display: flex; flex-direction: column; gap: 4px }
 .who-name { display: flex; align-items: center; gap: 14px }
 .hanja { font-family: var(--hanja); font-size: 34px; font-weight: 700; color: var(--accent); line-height: 1.1 }
@@ -77,10 +77,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px }
 .grid2 > * { min-width: 0 }
 .block { display: flex; flex-direction: column; gap: 8px; min-width: 0 }
-.block h3 { font-size: 14.5px; color: var(--accent); letter-spacing: 0.02em }
+.block h3 { font-size: 16px; color: var(--accent); letter-spacing: 0.02em }
 .block h3::before { content: '## '; opacity: .6 }
 .block p { max-width: 62ch }
-.block p + p { margin-top: 4px }
+.block p + p { margin-top: 12px }
 .caution { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px }
 
 .scores, .elements { display: flex; flex-direction: column; gap: 6px }
@@ -106,7 +106,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .plain li { font-size: 14px; padding-left: 1.2em; text-indent: -1.2em }
 .plain li::before { content: '· '; color: var(--accent) }
 
-.timeline li { display: grid; grid-template-columns: 9em 1fr; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px dashed var(--line) }
+.timeline li { display: grid; grid-template-columns: 9.5em 1fr; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px dashed var(--line) }
 .tl-time { font-variant-numeric: tabular-nums; font-size: 14px; font-weight: 700 }
 .points li { font-size: 15px }
 .tl-pillar .g { font-size: 17px }
@@ -138,28 +138,19 @@ table { border-collapse: collapse; width: 100%; font-size: 13px }
 .hours td.marks { white-space: normal; color: var(--muted); font-size: 12px; min-width: 14em }
 .hours .g { font-size: 16px }
 
-.ask { display: flex; flex-direction: column; gap: 12px; border-top: 1px solid var(--line); padding-top: 20px }
-.ask h2 { font-size: 17px }
-.ask-chips { display: flex; flex-wrap: wrap; gap: 6px }
-.ask-chips button { padding: 4px 10px; border: 1px solid var(--line); border-radius: 4px; font-size: 14px; background: var(--surface) }
-.ask-chips button:hover { border-color: var(--accent) }
-.ask-log { display: flex; flex-direction: column; gap: 14px }
-.ask-msg { display: flex; flex-direction: column; gap: 2px }
-.ask-who { font-size: 13px; color: var(--accent); font-weight: 700 }
-.ask-msg p { white-space: pre-wrap; max-width: 62ch }
-.ask-user p { color: var(--muted) }
-.ask-assistant { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px }
-.ask-assistant p:empty::after { content: '…'; color: var(--muted) }
-.ask-error p { color: var(--care) }
-.ask-form { display: flex; gap: 8px; align-items: stretch }
-.ask-form textarea, .ask-key input { flex: 1; min-width: 0; font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; resize: vertical }
-.ask-form button, .ask-key button { padding: 6px 16px; border-radius: 6px; background: var(--ink); color: var(--bg); font-weight: 700 }
-.ask-form button:disabled { opacity: .5; cursor: default }
-.ask-key { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px }
-.ask-key label { font-size: 14px; width: 100% }
-.ask-key button { background: none; color: var(--ink); border: 1px solid var(--line); font-weight: 400 }
-.ask-status:empty { display: none }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0) }
+.weather { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 10px 14px; max-width: 62ch }
+.score-wrap { display: flex; flex-direction: column; gap: 0 }
+.score-note { font-size: 13.5px; color: var(--muted); padding-left: calc(6em + 10px) }
+.todo .block { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px }
+.check { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px }
+.check li { padding-left: 1.6em; text-indent: -1.6em }
+.do .check li::before { content: '✓ '; color: var(--good); font-weight: 700 }
+.dont .check li::before { content: '✕ '; color: var(--care); font-weight: 700 }
+.do h3 { color: var(--good) } .dont h3 { color: var(--care) }
+.examples { border-left: 3px solid var(--accent-soft); padding: 4px 0 4px 14px; margin-top: 6px; max-width: 62ch }
+.examples > span { font-size: 13px; font-weight: 700; color: var(--accent) }
+.examples ul { margin: 4px 0 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 4px }
+.examples li::marker { color: var(--accent) }
 
 footer { border-top: 1px solid var(--line); padding-top: 16px; color: var(--muted); font-size: 12.5px; display: flex; flex-direction: column; gap: 6px }
 footer ul { margin: 0; padding-left: 1.2em }
@@ -173,7 +164,6 @@ footer ul { margin: 0; padding-left: 1.2em }
   <div class="cmd"><span><span class="prompt">❯</span> <b>unse</b> --who 김영지,전신혁 --date {{LATEST}}</span><span><span class="spark">✻</span> 매일 아침 6시에 새로 씁니다</span></div>
   {{DATENAV}}
   {{DAYS}}
-  {{ASK}}
   <footer>
     <ul>{{NOTES}}</ul>
     <p>운세는 하루를 돌아보는 재미로 읽어 주세요. 중요한 결정의 근거로 삼지는 마세요.</p>
@@ -200,4 +190,3 @@ footer ul { margin: 0; padding-left: 1.2em }
   if (saved && document.querySelector('.panel[data-panel="' + saved + '"]')) showTab(saved);
 })();
 </script>
-{{ASKSCRIPT}}

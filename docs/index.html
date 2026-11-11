@@ -67,7 +67,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .tabs button[aria-selected="true"] { color: var(--ink); font-weight: 700; border-bottom-color: var(--accent) }
 .tabs button[aria-selected="true"]::before { content: '❯ '; color: var(--accent) }
 
-.panel { display: flex; flex-direction: column; gap: 18px }
+.panel { display: flex; flex-direction: column; gap: 28px }
 .who { display: flex; flex-direction: column; gap: 4px }
 .who-name { display: flex; align-items: center; gap: 14px }
 .hanja { font-family: var(--hanja); font-size: 34px; font-weight: 700; color: var(--accent); line-height: 1.1 }
@@ -83,10 +83,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px }
 .grid2 > * { min-width: 0 }
 .block { display: flex; flex-direction: column; gap: 8px; min-width: 0 }
-.block h3 { font-size: 14.5px; color: var(--accent); letter-spacing: 0.02em }
+.block h3 { font-size: 16px; color: var(--accent); letter-spacing: 0.02em }
 .block h3::before { content: '## '; opacity: .6 }
 .block p { max-width: 62ch }
-.block p + p { margin-top: 4px }
+.block p + p { margin-top: 12px }
 .caution { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px }
 
 .scores, .elements { display: flex; flex-direction: column; gap: 6px }
@@ -112,7 +112,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .plain li { font-size: 14px; padding-left: 1.2em; text-indent: -1.2em }
 .plain li::before { content: '· '; color: var(--accent) }
 
-.timeline li { display: grid; grid-template-columns: 9em 1fr; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px dashed var(--line) }
+.timeline li { display: grid; grid-template-columns: 9.5em 1fr; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px dashed var(--line) }
 .tl-time { font-variant-numeric: tabular-nums; font-size: 14px; font-weight: 700 }
 .points li { font-size: 15px }
 .tl-pillar .g { font-size: 17px }
@@ -144,28 +144,19 @@ table { border-collapse: collapse; width: 100%; font-size: 13px }
 .hours td.marks { white-space: normal; color: var(--muted); font-size: 12px; min-width: 14em }
 .hours .g { font-size: 16px }
 
-.ask { display: flex; flex-direction: column; gap: 12px; border-top: 1px solid var(--line); padding-top: 20px }
-.ask h2 { font-size: 17px }
-.ask-chips { display: flex; flex-wrap: wrap; gap: 6px }
-.ask-chips button { padding: 4px 10px; border: 1px solid var(--line); border-radius: 4px; font-size: 14px; background: var(--surface) }
-.ask-chips button:hover { border-color: var(--accent) }
-.ask-log { display: flex; flex-direction: column; gap: 14px }
-.ask-msg { display: flex; flex-direction: column; gap: 2px }
-.ask-who { font-size: 13px; color: var(--accent); font-weight: 700 }
-.ask-msg p { white-space: pre-wrap; max-width: 62ch }
-.ask-user p { color: var(--muted) }
-.ask-assistant { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 12px 14px }
-.ask-assistant p:empty::after { content: '…'; color: var(--muted) }
-.ask-error p { color: var(--care) }
-.ask-form { display: flex; gap: 8px; align-items: stretch }
-.ask-form textarea, .ask-key input { flex: 1; min-width: 0; font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; resize: vertical }
-.ask-form button, .ask-key button { padding: 6px 16px; border-radius: 6px; background: var(--ink); color: var(--bg); font-weight: 700 }
-.ask-form button:disabled { opacity: .5; cursor: default }
-.ask-key { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 8px }
-.ask-key label { font-size: 14px; width: 100% }
-.ask-key button { background: none; color: var(--ink); border: 1px solid var(--line); font-weight: 400 }
-.ask-status:empty { display: none }
-.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0) }
+.weather { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 10px 14px; max-width: 62ch }
+.score-wrap { display: flex; flex-direction: column; gap: 0 }
+.score-note { font-size: 13.5px; color: var(--muted); padding-left: calc(6em + 10px) }
+.todo .block { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px }
+.check { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px }
+.check li { padding-left: 1.6em; text-indent: -1.6em }
+.do .check li::before { content: '✓ '; color: var(--good); font-weight: 700 }
+.dont .check li::before { content: '✕ '; color: var(--care); font-weight: 700 }
+.do h3 { color: var(--good) } .dont h3 { color: var(--care) }
+.examples { border-left: 3px solid var(--accent-soft); padding: 4px 0 4px 14px; margin-top: 6px; max-width: 62ch }
+.examples > span { font-size: 13px; font-weight: 700; color: var(--accent) }
+.examples ul { margin: 4px 0 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 4px }
+.examples li::marker { color: var(--accent) }
 
 footer { border-top: 1px solid var(--line); padding-top: 16px; color: var(--muted); font-size: 12.5px; display: flex; flex-direction: column; gap: 6px }
 footer ul { margin: 0; padding-left: 1.2em }
@@ -183,8 +174,9 @@ footer ul { margin: 0; padding-left: 1.2em }
   <h1>2026년 11월 11일 <span>수요일</span></h1>
   <div class="chips"><span class="chip">병오년<small>丙午</small></span><span class="chip">기해월<small>己亥</small></span><span class="chip">기축일<small>己丑</small></span><span class="chip term">입동 무렵</span></div>
 </div>
-<p class="headline">새 일을 벌이기보다 하던 일을 마무리하면 좋은 날.</p>
-<p class="daynote">오늘은 축축한 겨울 흙의 기운이 겹친 날이다. 촛불 같은 두 사람에게 흙은 '내 손으로 만들어 내는 것'을 뜻한다. 만들고 챙기는 힘은 커지지만, 불이 흙을 데우느라 기운이 빨리 빠진다.</p>
+<p class="headline">오늘의 테마는 '창고 정리'. 새로 벌이지 말고, 쌓아 둔 걸 꺼내 쓰는 날!</p>
+<p class="weather">운세 날씨로 치면 '포근한 흐림'. 해는 안 나는데 이불 속처럼 아늑한 날이에요.</p>
+<p class="daynote">오늘은 축축한 겨울 흙의 기운이 하늘에도 땅에도 깔렸어요. 두 분은 둘 다 '촛불'이잖아요. 촛불에게 흙은 '내 손으로 만들어 내는 것'이에요. 그래서 오늘은 손이 바빠지고 결과물이 쌓여요. 대신 촛불이 흙을 데우느라 배터리가 평소보다 빨리 닳아요. 요약하면, 일은 잘되는데 저녁엔 방전되는 날.</p>
 <nav class="tabs" role="tablist" aria-label="누구의 운세">
   <button role="tab" data-tab="yeongji" aria-selected="true">영지</button>
   <button role="tab" data-tab="shinhyuk" aria-selected="false">신혁</button>
@@ -195,20 +187,24 @@ footer ul { margin: 0; padding-left: 1.2em }
   <div class="who-name"><span class="hanja">榮地</span><span><strong>김영지</strong><small>영화로울 영 · 땅 지</small></span></div>
   <p class="who-meta">1991.09.14 14:00 출생 · 양띠 · 촛불의 기운</p>
 </header>
-<p class="lede">묵혀 둔 일이 다시 떠오르고, 그것이 성과와 돈으로 이어지기 좋은 날이다. 다만 평소보다 빨리 지친다.</p>
-<ul class="keywords"><li>마무리</li><li>정산</li><li>저녁 약속</li></ul>
+<p class="lede">영지 님, 오늘은 '서랍 깊숙이 넣어 둔 것'이 튀어나오는 날이에요. 접어 둔 기획안, 잊고 있던 환급금, 미뤄 둔 답장. 그런데 이게 귀찮은 일이 아니라 돈과 성과로 바뀌는 쪽이라 반가운 손님이에요.</p>
+<ul class="keywords"><li>창고 대방출</li><li>받을 돈 챙기기</li><li>저녁이 골든타임</li></ul>
 <div class="grid2">
-  <section class="block"><h3>오늘의 점수</h3><div class="scores"><div class="score"><span class="score-k">총운</span><span class="bar" role="img" aria-label="총운 76점"><i style="width:76%"></i></span><span class="score-v">76</span></div><div class="score"><span class="score-k">부부 사이</span><span class="bar" role="img" aria-label="부부 사이 72점"><i style="width:72%"></i></span><span class="score-v">72</span></div><div class="score"><span class="score-k">돈</span><span class="bar" role="img" aria-label="돈 84점"><i style="width:84%"></i></span><span class="score-v">84</span></div><div class="score"><span class="score-k">회사 일</span><span class="bar" role="img" aria-label="회사 일 78점"><i style="width:78%"></i></span><span class="score-v">78</span></div><div class="score"><span class="score-k">건강</span><span class="bar" role="img" aria-label="건강 62점"><i style="width:62%"></i></span><span class="score-v">62</span></div></div></section>
-  <section class="block"><h3>오늘 한눈에</h3><ul class="plain points"><li>좋은 점: 만든 것에 값이 붙는다. 정산, 견적, 가격 정하기에 유리하다.</li><li>조심할 점: 상사나 가족에게 말이 날카롭게 나가기 쉽다.</li><li>가장 좋은 시간: 오후 5시–7시.</li></ul></section>
+  <section class="block"><h3>오늘의 점수</h3><div class="scores"><div class="score-wrap"><div class="score"><span class="score-k">총운</span><span class="bar" role="img" aria-label="총운 76점"><i style="width:76%"></i></span><span class="score-v">76</span></div><p class="score-note">크게 터지는 건 없지만 알차게 남는 하루</p></div><div class="score-wrap"><div class="score"><span class="score-k">부부 사이</span><span class="bar" role="img" aria-label="부부 사이 72점"><i style="width:72%"></i></span><span class="score-v">72</span></div><p class="score-note">말보다 밥이 통하는 날</p></div><div class="score-wrap"><div class="score"><span class="score-k">돈</span><span class="bar" role="img" aria-label="돈 84점"><i style="width:84%"></i></span><span class="score-v">84</span></div><p class="score-note">오늘의 1등. 정산과 환급에 초록불</p></div><div class="score-wrap"><div class="score"><span class="score-k">회사 일</span><span class="bar" role="img" aria-label="회사 일 78점"><i style="width:78%"></i></span><span class="score-v">78</span></div><p class="score-note">마감과 제출에 강하고, 새 제안에는 약해요</p></div><div class="score-wrap"><div class="score"><span class="score-k">건강</span><span class="bar" role="img" aria-label="건강 62점"><i style="width:62%"></i></span><span class="score-v">62</span></div><p class="score-note">오후 3시쯤 배터리 20% 경고등</p></div></div></section>
+  <section class="block"><h3>오늘 한눈에</h3><ul class="plain points"><li>제일 좋은 것: 돈. 새로 버는 것보다 '받을 돈이 확정되는' 운이에요.</li><li>제일 조심할 것: 말투. 상사와 가족에게 한마디가 뾰족하게 나가기 쉬워요.</li><li>골든타임: 오후 5시–7시. 중요한 연락은 이때로 미뤄요.</li></ul></section>
 </div>
-<section class="block"><h3>오늘 하루의 큰 그림</h3><p>오늘은 새로 구상하는 것보다 이미 하던 일을 끝까지 만들어 내놓는 데 운이 실린다. 기세가 밖으로 뻗는 날은 아니다. 조용히 쌓고 정리하는 일이 잘 맞는다. 자료 정리, 밀린 메일 답장, 계약서나 약관 다시 읽기 같은 일을 하기 좋다.</p><p>예전에 하다 만 일이나 접어 둔 계획이 문득 떠오를 수 있다. 오늘 떠오른 것은 쓸모가 있으니 흘려보내지 말고 메모해 둔다.</p></section><section class="block"><h3>회사에서</h3><p>결과물을 내놓으면 반응이 온다. 보고서 제출, 발표, 자료 공유 모두 무난하다. 미뤄 둔 건을 오늘 마감하면 평가가 좋다.</p><p>반대로 상사의 방식에 이의를 제기하는 일은 오늘은 피하는 편이 낫다. 내용보다 말투가 먼저 문제가 되기 쉬운 날이다. 꼭 해야 한다면 메신저보다 얼굴을 보고, 오후 5시 이후에 한다. 부탁이나 중요한 연락도 그 시간으로 미루면 한결 수월하다.</p></section><section class="block"><h3>돈</h3><p>오늘 다섯 가지 가운데 가장 좋다. 새 돈이 들어온다기보다 '받을 돈이 확정되는' 운이다. 경비 청구, 환급 신청, 연말정산 서류 챙기기, 가격 비교 같은 일을 하기 좋다.</p><p>부부가 함께 쓰는 돈은 오늘 말로만 정하지 말고 숫자로 적어 둔다. 영지는 돈 앞에서 경쟁자가 붙기 쉬운 사주라, 기록이 곧 방패다.</p></section><section class="block"><h3>부부 사이</h3><p>오늘은 긴 대화보다 같이 먹는 밥이 통한다. 퇴근 후 저녁을 함께 챙기는 것이 가장 좋다.</p><p>낮 1시에서 3시 사이에 꺼낸 서운한 이야기는 결론 없이 맴돌기 쉽다. 하고 싶은 말이 있으면 밤 9시 이후, 씻고 편해진 다음에 꺼낸다. 그 시간은 두 사람 모두에게 좋은 시간이다.</p></section><section class="block"><h3>건강</h3><p>기운이 계속 빠져나가는 날이라 오후에 갑자기 지칠 수 있다. 영지는 원래 충전이 더딘 체질이라 더 그렇다. 점심 뒤에 10분이라도 눈을 붙이거나 자리에서 일어나 걷는다.</p><p>위와 장이 먼저 반응하는 날이다. 과식, 찬 음식, 늦은 야식은 피한다. 눈의 피로와 손발이 찬 것도 살핀다.</p></section><section class="block"><h3>이번 달과 올해</h3><p>11월은 책임과 관계 문제를 혼자 곱씹다가 스스로를 깎기 쉬운 달이다. 생각이 돌기 시작하면 몸을 먼저 움직이는 것이 약이다.</p><p>2026년은 영지에게 든든한 지원군이 붙는 해다. 같은 편이 되어 주는 사람이 많고, 비어 있던 자리가 채워진다. 올해 시작한 일은 오늘 같은 날 형태를 잡아 두면 오래 간다.</p></section><section class="block"><h3>이름으로 본 오늘</h3><p>오늘은 흙의 기운이 넘치는 날이라 이름의 地(땅)는 이미 가득 찼다. 힘을 써야 할 글자는 榮(꽃 피는 나무)이다. 나무는 넘치는 흙을 눌러 주고 지친 불에 땔감을 댄다.</p><p>초록이 보이는 자리에 앉고, 화분에 물을 주고, 종이책을 몇 쪽 읽는다. 오늘은 그것이 그대로 운을 여는 방법이다.</p></section>
+<div class="grid2 todo">
+  <section class="block do"><h3>오늘 하면 좋은 일</h3><ul class="check"><li>밀린 경비 정산 올리기</li><li>'나중에 봐야지' 폴더 열어 보기</li><li>카드 포인트·환급금 조회하기</li><li>퇴근길에 신혁 님과 저녁 약속 잡기</li><li>화분에 물 주기</li></ul></section>
+  <section class="block dont"><h3>오늘은 참는 일</h3><ul class="check"><li>상사에게 '그건 좀 아닌 것 같은데요' 메신저 보내기</li><li>점심에 차가운 음식으로 과식하기</li><li>오후 1–3시에 중요한 결정 내리기</li><li>밤 11시 넘어 야식 시키기</li></ul></section>
+</div>
+<section class="block"><h3>오늘 하루의 큰 그림</h3><p>오늘은 '씨 뿌리는 날'이 아니라 '곳간 여는 날'이에요. 새 아이디어를 내려고 하면 머리가 잘 안 돌아가요. 대신 이미 해 둔 일을 꺼내서 마무리하면 놀랄 만큼 술술 풀려요.</p><p>재밌는 건, 영지 님 사주에 원래 '잠들어 있던 자리'가 두 군데 있는데 오늘 기운이 거길 툭툭 쳐서 깨운다는 거예요. 그래서 '아, 맞다. 그거 있었지!' 하는 순간이 몇 번 와요. 그 순간이 오늘의 보물이에요.</p><div class="examples"><span>예를 들면</span><ul><li>몇 달 전 쓰다 만 기획안이 갑자기 지금 프로젝트에 딱 맞는다</li><li>예전에 받아 둔 연락처가 오늘 필요한 사람이다</li><li>가입만 해 두고 잊은 적금이나 포인트가 생각난다</li></ul></div></section><section class="block"><h3>회사에서</h3><p>오늘 영지 님은 '마감 요정'이에요. 손대는 것마다 완성돼요. 보고서, 정산서, 회의록처럼 '끝을 내야 하는 일'을 오늘 몰아서 처리하면 좋아요. 내놓으면 반응도 바로 와요.</p><p>다만 오늘은 입에 살짝 가시가 돋는 날이에요. 내용은 맞는 말인데 말투 때문에 손해 보기 쉬워요. 상사 방식이 마음에 안 들어도 오늘은 일단 삼키고, 꼭 말해야 하면 오후 5시 이후에 얼굴 보고 하세요. 같은 말도 그 시간엔 부드럽게 들려요.</p><div class="examples"><span>예를 들면</span><ul><li>오전: 미뤄 둔 보고서 초안을 끝내서 공유한다</li><li>오후 3시쯤 집중이 끊기면: 자료 폴더 정리, 메일함 비우기 같은 단순한 일로 바꾼다</li><li>보내기 전 한 번 더: '확인 부탁드립니다'가 '이거 왜 안 됐죠?'로 읽히지 않는지 본다</li><li>부탁할 일이 있으면: 오후 5시 넘어서 '혹시 시간 되실 때'로 시작한다</li></ul></div></section><section class="block"><h3>돈</h3><p>오늘의 주인공이에요. 영지 님이 만든 것에 '값'이 붙는 날이거든요. 하늘에서 돈이 떨어지는 운은 아니고, 원래 내 것이었는데 안 챙긴 돈이 내 통장으로 돌아오는 운이에요.</p><p>한 가지 주의할 점. 영지 님은 원래 '내 돈인 줄 알았는데 누가 옆에서 같이 쳐다보고 있는' 사주예요. 그러니 부부 공동 지출이든 회사 경비든, 오늘 정한 건 꼭 숫자로 남겨 두세요. 기록이 방패예요.</p><div class="examples"><span>예를 들면</span><ul><li>회사 경비 정산, 출장비 청구를 오늘 올린다</li><li>연말정산 미리 보기를 한번 돌려 본다</li><li>안 쓰는 구독 서비스를 찾아서 해지한다</li><li>'이번 달 생활비 얼마씩 냈더라'를 메모 앱에 숫자로 적는다</li></ul></div></section><section class="block"><h3>부부 사이</h3><p>오늘 영지 님은 할 말이 많고, 신혁 님은 말수가 줄어요. 영지 님이 '오늘 있잖아' 하고 시작했는데 답이 '응' 한 글자여도 서운해 마세요. 무심한 게 아니라 오늘 신혁 님 기운이 '동굴 모드'라 그래요.</p><p>오늘의 정답은 밥이에요. 긴 대화보다 마주 앉아 먹는 따뜻한 한 끼가 백 마디를 대신해요. 진지한 이야기는 밤 9시 넘어서, 씻고 편한 옷으로 갈아입은 다음에 꺼내세요. 그 시간은 두 분 모두에게 좋은 시간이에요.</p><div class="examples"><span>예를 들면</span><ul><li>퇴근 전에 '오늘 저녁 뭐 먹을까?' 먼저 보내기</li><li>낮에 서운한 일이 생겨도 메신저로 길게 쓰지 않고 저녁까지 들고 가기</li><li>밤 9시 이후: '나 오늘 이런 일 있었어'로 가볍게 시작하기</li></ul></div></section><section class="block"><h3>건강</h3><p>오늘 영지 님은 '보조 배터리 없는 날'이에요. 만들고 챙기느라 기운이 계속 빠져나가는데, 영지 님은 원래 충전이 느린 편이라 오후에 훅 꺼질 수 있어요.</p><p>특히 오늘은 배가 먼저 신호를 보내요. 더부룩함, 체한 느낌이 오기 쉬워요. 그리고 눈이 뻑뻑하고 손발이 차가워지면 '쉬라'는 뜻이에요.</p><div class="examples"><span>예를 들면</span><ul><li>점심은 따뜻한 국물 있는 메뉴로, 배부르기 전에 숟가락 내려놓기</li><li>아이스 음료 대신 따뜻한 차 한 잔</li><li>오후 3시에 5분만 자리에서 일어나 창밖 보기</li><li>오늘 야근은 패스. 내일 하면 30분이면 끝날 일을 오늘 하면 2시간 걸려요</li></ul></div></section><section class="block"><h3>이번 달과 올해</h3><p>11월의 영지 님은 '혼자 회의하는 사람'이 되기 쉬워요. 맡은 책임과 사람 사이 일을 머릿속에서 계속 돌리다가 스스로 지쳐요. 생각이 세 바퀴째 돌고 있으면 일단 일어나서 걷는 게 답이에요.</p><p>2026년 전체로 보면 영지 님 편이 많은 해예요. 도와주는 사람이 붙고, 허전하던 자리가 채워져요. 올해 시작한 일은 오늘 같은 날 문서로, 숫자로 정리해 두면 오래 가요.</p><div class="examples"><span>예를 들면</span><ul><li>같은 고민이 3번 이상 떠오르면: 10분 산책 후에 종이에 적어 본다</li><li>올해 새로 시작한 일(공부, 프로젝트, 저축)의 현재 상황을 한 줄로 적어 둔다</li></ul></div></section><section class="block"><h3>이름으로 본 오늘</h3><p>영지 님 이름 榮地는 '꽃 피는 나무(榮)'와 '땅(地)'이에요. 그런데 오늘은 온 세상이 흙이라 '땅'은 이미 넘쳐요. 오늘 일해야 하는 글자는 '나무' 쪽이에요.</p><p>나무는 넘치는 흙을 붙잡아 주고, 지친 촛불에 장작을 넣어 줘요. 그러니 오늘은 초록색을 가까이하는 게 그대로 충전이에요. 창고에 쌓아 둔 게 꽃으로 피려면 나무가 한 번 올라와야 하니까요.</p><div class="examples"><span>예를 들면</span><ul><li>모니터 옆 화분에 물 주기 (없으면 창밖 나무라도 30초 보기)</li><li>점심 먹고 가로수 있는 길로 한 바퀴</li><li>자기 전에 휴대폰 대신 종이책 다섯 쪽</li></ul></div></section>
 <section class="block"><h3>시간대별 흐름</h3>
-  <ul class="timeline"><li class="tone-care"><span class="tl-time">오전 9–11시</span><span class="tl-note"><b>주의</b> 이동과 일정 변경이 잦다. 서두르다 물건을 두고 오기 쉽다.</span></li><li class="tone-neutral"><span class="tl-time">오전 11–오후 1시</span><span class="tl-note"><b>보통</b> 약속은 잡되, 확정은 오후로 미룬다.</span></li><li class="tone-care"><span class="tl-time">오후 1–3시</span><span class="tl-note"><b>주의</b> 결정하기보다 혼자 하는 정리 작업에 쓴다.</span></li><li class="tone-good"><span class="tl-time">오후 5–7시</span><span class="tl-note"><b>좋음</b> 오늘 가장 좋은 시간. 연락, 부탁, 정산.</span></li><li class="tone-good"><span class="tl-time">밤 9–11시</span><span class="tl-note"><b>좋음</b> 쉬면서 기운을 되찾는 시간. 차분한 대화에 좋다.</span></li></ul>
+  <ul class="timeline"><li class="tone-neutral"><span class="tl-time">오전 7–9시</span><span class="tl-note"><b>보통</b> 출근길. 머리는 맑은데 입이 날카로워요. 아침 인사는 짧고 상냥하게.</span></li><li class="tone-care"><span class="tl-time">오전 9–11시</span><span class="tl-note"><b>주의</b> 일정이 갑자기 바뀌고 자리 이동이 많아요. 휴대폰, 사원증 두고 나오지 않기.</span></li><li class="tone-neutral"><span class="tl-time">오전 11–오후 1시</span><span class="tl-note"><b>보통</b> 약속은 잡아도 좋지만 '확정'은 오후로. 점심은 과식 금지.</span></li><li class="tone-care"><span class="tl-time">오후 1–3시</span><span class="tl-note"><b>주의</b> 오늘의 구멍. 결정하면 뒤집혀요. 혼자 하는 정리 작업으로 채우기.</span></li><li class="tone-neutral"><span class="tl-time">오후 3–5시</span><span class="tl-note"><b>보통</b> 배터리 경고. 윗사람과 엮이는 일은 조심조심.</span></li><li class="tone-good"><span class="tl-time">오후 5–7시</span><span class="tl-note"><b>좋음</b> 골든타임! 부탁, 연락, 정산, 중요한 메일 전부 여기로.</span></li><li class="tone-neutral"><span class="tl-time">저녁 7–9시</span><span class="tl-note"><b>보통</b> 가족 이야기는 살짝 예민해요. 밥 먹는 데 집중.</span></li><li class="tone-good"><span class="tl-time">밤 9–11시</span><span class="tl-note"><b>좋음</b> 충전 시간. 차분한 대화, 책, 일찍 눕기.</span></li></ul>
   
 </section>
 <div class="grid2">
   <section class="block"><h3>오늘 운을 돕는 것</h3><dl class="lucky"><div><dt>색</dt><dd>짙은 초록</dd></div><div><dt>방향</dt><dd>동쪽</dd></div><div><dt>숫자</dt><dd>3, 8</dd></div><div><dt>시간</dt><dd>오후 5–7시</dd></div><div><dt>곁에 둘 것</dt><dd>화분, 종이책, 따뜻한 차</dd></div></dl></section>
-  <section class="block caution"><h3>한 가지만 조심</h3><p>상사나 가족에게 보내는 말은 한 번 고쳐서 보낸다.</p></section>
+  <section class="block caution"><h3>한 가지만 조심</h3><p>오늘 보내는 메시지는 '전송' 누르기 전에 한 번만 소리 내서 읽어 보세요. 가시가 보여요.</p></section>
 </div>
 <section class="natal"><h2><span class="prompt">❯</span> 영지는 어떤 사람인가</h2>
   <p class="lede small">가을 저녁에 켠 등불 같은 사람. 쉽게 꺼지지 않고, 비추는 곳마다 좋은 것이 드러난다.</p>
@@ -236,29 +232,33 @@ footer ul { margin: 0; padding-left: 1.2em }
 </div>
 <div class="panel" data-panel="shinhyuk" hidden>
 <header class="who">
-  <div class="who-name"><span class="hanja">伸赫</span><span><strong>전신혁</strong><small>펼 신 · 빛날 혁</small></span></div>
+  <div class="who-name"><span class="hanja">伸爀</span><span><strong>전신혁</strong><small>펼 신 · 붉을 혁</small></span></div>
   <p class="who-meta">1991.01.17 시각 미상 출생 · 말띠 · 촛불의 기운</p>
 </header>
-<p class="lede">오늘의 기운이 신혁이 타고난 '일하는 자리'의 기운과 똑같다. 늘 하던 일이 평소보다 무겁게, 그리고 중요하게 다가오는 날이다.</p>
-<ul class="keywords"><li>본업 집중</li><li>꼼꼼함</li><li>중간에 쉬기</li></ul>
+<p class="lede">신혁 님, 오늘은 신기한 날이에요. 오늘의 기운이 신혁 님이 타고난 '일하는 자리'의 기운과 글자 하나 안 틀리고 똑같아요. 쉽게 말해 '본업 2배 데이'. 늘 하던 일이 두 배로 진지하게 다가와요.</p>
+<ul class="keywords"><li>본업 2배 데이</li><li>장인 모드</li><li>중간에 쉬어 가기</li></ul>
 <div class="grid2">
-  <section class="block"><h3>오늘의 점수</h3><div class="scores"><div class="score"><span class="score-k">총운</span><span class="bar" role="img" aria-label="총운 73점"><i style="width:73%"></i></span><span class="score-v">73</span></div><div class="score"><span class="score-k">부부 사이</span><span class="bar" role="img" aria-label="부부 사이 70점"><i style="width:70%"></i></span><span class="score-v">70</span></div><div class="score"><span class="score-k">돈</span><span class="bar" role="img" aria-label="돈 74점"><i style="width:74%"></i></span><span class="score-v">74</span></div><div class="score"><span class="score-k">회사 일</span><span class="bar" role="img" aria-label="회사 일 82점"><i style="width:82%"></i></span><span class="score-v">82</span></div><div class="score"><span class="score-k">건강</span><span class="bar" role="img" aria-label="건강 60점"><i style="width:60%"></i></span><span class="score-v">60</span></div></div></section>
-  <section class="block"><h3>오늘 한눈에</h3><ul class="plain points"><li>좋은 점: 손에 익은 일의 완성도가 올라간다. 마감과 검토에 좋다.</li><li>조심할 점: 일이 쉬는 시간을 밀어낸다. 무리하기 쉽다.</li><li>가장 좋은 시간: 오후 5시–7시.</li></ul></section>
+  <section class="block"><h3>오늘의 점수</h3><div class="scores"><div class="score-wrap"><div class="score"><span class="score-k">총운</span><span class="bar" role="img" aria-label="총운 73점"><i style="width:73%"></i></span><span class="score-v">73</span></div><p class="score-note">조용하지만 내공이 쌓이는 하루</p></div><div class="score-wrap"><div class="score"><span class="score-k">부부 사이</span><span class="bar" role="img" aria-label="부부 사이 70점"><i style="width:70%"></i></span><span class="score-v">70</span></div><p class="score-note">말은 안 나오는데 행동은 통하는 날</p></div><div class="score-wrap"><div class="score"><span class="score-k">돈</span><span class="bar" role="img" aria-label="돈 74점"><i style="width:74%"></i></span><span class="score-v">74</span></div><p class="score-note">버는 것보다 새는 구멍 막는 데 이득</p></div><div class="score-wrap"><div class="score"><span class="score-k">회사 일</span><span class="bar" role="img" aria-label="회사 일 82점"><i style="width:82%"></i></span><span class="score-v">82</span></div><p class="score-note">오늘의 1등. 검토와 마감의 달인</p></div><div class="score-wrap"><div class="score"><span class="score-k">건강</span><span class="bar" role="img" aria-label="건강 60점"><i style="width:60%"></i></span><span class="score-v">60</span></div><p class="score-note">아침에 이불이 몸을 안 놔줘요</p></div></div></section>
+  <section class="block"><h3>오늘 한눈에</h3><ul class="plain points"><li>제일 좋은 것: 회사 일. 꼼꼼함이 평소의 두 배예요.</li><li>제일 조심할 것: 과로. 일이 쉬는 시간을 밀어내요.</li><li>골든타임: 오후 5시–7시. 돈과 관련된 결정은 이때.</li></ul></section>
 </div>
-<section class="block"><h3>오늘 하루의 큰 그림</h3><p>새 일을 벌이기보다 하던 일을 반복해서 다지는 날이다. 같은 일을 또 하게 되어도 답답해할 것 없다. 오늘의 반복은 실력으로 남는다.</p><p>큰 사건 없이 조용히 흘러가는 하루다. 다만 성과에 대한 칭찬은 오늘 바로 오지 않고 나중에 온다.</p></section><section class="block"><h3>회사에서</h3><p>오늘 다섯 가지 가운데 가장 좋다. 문서 마감, 자료 검토, 숫자 맞추기처럼 꼼꼼함이 필요한 일을 오늘에 몰아 두면 좋다. 평소 놓치던 실수가 눈에 잘 들어온다.</p><p>오후 1시에서 3시 사이 회의에서는 일하는 방식을 두고 의견이 엇갈리기 쉽다. 그 자리에서 결론을 내려 하지 말고 '정리해서 다시 공유하겠다'로 넘긴다. 아침 7시에서 9시 사이, 출근길과 첫 메신저에서는 말이 날카롭게 나가지 않게 조심한다.</p></section><section class="block"><h3>돈</h3><p>큰 수입보다 정리에서 이득이 나는 날이다. 안 쓰는 구독 해지, 묵힌 포인트, 미뤄 둔 환급 신청 같은 것을 챙기기 좋다.</p><p>돈과 관련된 결정은 오후 5시에서 7시 사이에 한다. 퇴근길에 부부가 같이 정하면 더 좋다.</p></section><section class="block"><h3>부부 사이</h3><p>오늘은 표현이 무뚝뚝해지기 쉽다. 마음이 없어서가 아니라 말로 잘 나오지 않는 날이다. 대신 행동은 잘 통한다. 저녁을 맡거나 귀찮은 집안일을 하나 대신 해 주는 것으로 충분하다.</p><p>밤 9시 이후에는 마음에 있던 이야기를 꺼내기 좋다.</p></section><section class="block"><h3>건강</h3><p>겨울에 태어난 불이 겨울 같은 날을 만났다. 몸이 무겁고 아침에 일어나기 어렵다. 따뜻하게 입고, 점심 무렵 햇볕을 10분이라도 쬔다.</p><p>할 수 있다고 해서 끝까지 밀지 말고 중간에 한 번 끊어 쉰다. 수면의 질과 눈의 피로를 살피고, 저녁 과식은 피한다.</p></section><section class="block"><h3>이번 달과 올해</h3><p>11월은 맡은 책임을 속으로만 지고 있다가 스스로 지치기 쉬운 달이다. 진행 상황을 말로 꺼내 나누면 짐이 준다.</p><p>2026년은 신혁의 체력과 추진력에 힘이 실리는 해다. 다만 무리와 과로도 같이 온다. 올해 벌인 일의 속도가 적당한지 오늘 한번 점검해 볼 만하다.</p></section><section class="block"><h3>이름으로 본 오늘</h3><p>오늘이야말로 이름을 써야 하는 날이다. 흙에 덮여 움츠러든 불에게 伸은 '펴라'고 하고, 赫은 '환하게 빛나라'고 한다.</p><p>어깨와 허리를 실제로 펴는 스트레칭, 밝은 조명 아래에서 일하기, 따뜻한 국물이 이름의 뜻을 몸으로 옮기는 방법이다. 묵묵히 한 일을 오늘 한 사람에게라도 보여 주면 赫의 몫을 한 것이다.</p></section>
+<div class="grid2 todo">
+  <section class="block do"><h3>오늘 하면 좋은 일</h3><ul class="check"><li>미뤄 둔 검토·마감 끝내기</li><li>점심 먹고 햇볕 10분 쬐기</li><li>1시간에 한 번 어깨 펴기</li><li>퇴근 후 저녁 담당하기</li><li>안 쓰는 구독 해지하기</li></ul></section>
+  <section class="block dont"><h3>오늘은 참는 일</h3><ul class="check"><li>'조금만 더' 하다가 야근하기</li><li>오후 1–3시 회의에서 결론 내기</li><li>아침 첫 메신저에 단답으로 답하기</li><li>저녁 과식하고 바로 눕기</li></ul></section>
+</div>
+<section class="block"><h3>오늘 하루의 큰 그림</h3><p>오늘 신혁 님은 '장인 모드'예요. 새로운 걸 벌이는 날이 아니라 하던 걸 한 번 더 다지는 날이에요. 같은 일을 또 하게 돼도 '또야?' 하지 마세요. 오늘의 반복은 그냥 반복이 아니라 실력이 한 겹 쌓이는 반복이에요.</p><p>큰 사건은 없어요. 드라마로 치면 '조용히 흘러가는 회차'인데, 이런 회차에 복선이 깔리는 법이죠. 다만 칭찬은 오늘 바로 안 와요. 며칠 뒤에 '그때 그거 잘해 놨네' 하고 돌아와요.</p><div class="examples"><span>예를 들면</span><ul><li>지난주에 만든 자료를 다시 열었더니 고칠 곳이 눈에 쏙 들어온다</li><li>매번 하던 업무인데 오늘은 더 빠른 방법이 보인다</li><li>누가 알아주지 않아도 정리해 둔 게 며칠 뒤 회의에서 빛난다</li></ul></div></section><section class="block"><h3>회사에서</h3><p>오늘의 주인공이에요. 신혁 님 눈에 '틀린 그림 찾기' 능력이 장착됐어요. 숫자 안 맞는 곳, 빠진 항목, 오타가 평소보다 잘 보여요. 꼼꼼함이 필요한 일은 전부 오늘로 몰아 두세요.</p><p>조심할 시간이 두 번 있어요. 하나는 아침 7–9시. 출근길과 첫 메신저에서 말이 짧고 날카롭게 나가요. 또 하나는 오후 1–3시. 이 시간 회의에서는 '어떻게 할 거냐'로 의견이 갈려요. 거기서 이기려 하지 말고 '정리해서 다시 공유드릴게요'로 빠져나오세요. 오늘의 필살기예요.</p><div class="examples"><span>예를 들면</span><ul><li>오전: 결재 올리기 전 문서, 엑셀 수식, 계약서 조항을 한 번 더 검토한다</li><li>아침 첫 답장: '네' 대신 '네, 확인했습니다. 오전 중에 드릴게요'</li><li>오후 회의에서 의견이 갈리면: 그 자리에서 결론 내지 않고 회의록에 '추후 정리'로 적는다</li><li>오후 3–5시: 외근이나 자리 이동이 생기면 흔쾌히 나간다. 움직이는 게 오히려 도움</li></ul></div></section><section class="block"><h3>돈</h3><p>오늘 신혁 님의 돈 운은 '수도꼭지 잠그기'예요. 크게 들어오는 날은 아닌데, 새고 있던 걸 찾아서 막으면 그게 그대로 이득이에요. 꾸준히 벌고 차곡차곡 쌓는 게 신혁 님 사주의 방식이라 오늘 같은 날이 잘 맞아요.</p><p>돈 결정은 오후 5–7시에 하세요. 퇴근길에 영지 님과 같이 정하면 더 좋아요. 그 시간엔 두 분 모두 판단이 또렷해요.</p><div class="examples"><span>예를 들면</span><ul><li>자동결제 내역을 훑어보고 안 보는 OTT, 안 쓰는 앱 구독을 해지한다</li><li>묵혀 둔 카드 포인트를 현금이나 상품권으로 바꾼다</li><li>미뤄 둔 실비 보험 청구를 앱으로 올린다</li><li>큰 지출은 퇴근길에 영지 님에게 '이거 살까?' 하고 물어본 뒤 결정한다</li></ul></div></section><section class="block"><h3>부부 사이</h3><p>오늘 신혁 님은 '동굴 모드'예요. 마음은 있는데 말로 안 나와요. 영지 님이 이야기를 꺼냈을 때 '응', '그래' 하고 넘기면 영지 님은 오늘 서운해요. 왜냐면 영지 님은 오늘 할 말이 많은 날이거든요.</p><p>다행히 오늘 신혁 님에겐 치트키가 있어요. 말 대신 행동이에요. 오늘은 '해 주는 것'이 '말해 주는 것'보다 세 배쯤 잘 통해요. 그리고 밤 9시가 넘으면 동굴 문이 열려요. 그때 하고 싶던 이야기를 꺼내 보세요.</p><div class="examples"><span>예를 들면</span><ul><li>저녁 메뉴 정하고 직접 차리거나 주문까지 맡기</li><li>설거지, 분리수거, 빨래 개기 중 하나를 말없이 끝내 놓기</li><li>'응' 뒤에 한 마디만 붙이기: '응, 그래서 어떻게 됐어?'</li><li>밤 9시 이후: '나 요즘 이런 생각 했어' 하고 먼저 꺼내기</li></ul></div></section><section class="block"><h3>건강</h3><p>신혁 님은 한겨울에 태어난 촛불인데, 오늘이 딱 한겨울 같은 날이에요. 차갑고 축축한 흙이 불빛을 덮어요. 그래서 몸이 무겁고, 아침에 알람을 세 번은 끄게 돼요. 게을러서가 아니라 오늘 기운이 그래요.</p><p>오늘 제일 위험한 생각은 '할 수 있는데 그냥 끝까지 하지 뭐'예요. 일이 쉬는 시간을 밀어내는 날이라, 일부러 끊어 주지 않으면 계속 달려요.</p><div class="examples"><span>예를 들면</span><ul><li>점심 먹고 건물 밖으로 나가 햇볕 10분</li><li>50분 일하고 5분은 자리에서 일어나기 (알람 맞춰 두기)</li><li>저녁은 평소의 80%만. 먹고 바로 눕지 않기</li><li>따뜻하게 입기. 특히 목과 발</li></ul></div></section><section class="block"><h3>이번 달과 올해</h3><p>11월의 신혁 님은 '말 안 하고 혼자 다 지는 사람'이 되기 쉬워요. 맡은 일을 속으로만 끌어안고 있다가 지쳐요. '지금 여기까지 했고, 이게 걸려요'를 입 밖으로 꺼내는 것만으로 짐이 절반이 돼요.</p><p>2026년은 신혁 님에게 엔진이 하나 더 달린 해예요. 추진력이 좋아요. 그런데 엔진이 세면 기름도 빨리 닳아요. 올해 벌인 일이 너무 많지 않은지 오늘 한번 세어 보세요.</p><div class="examples"><span>예를 들면</span><ul><li>팀장이나 동료에게 진행 상황을 먼저 한 줄로 공유한다</li><li>올해 새로 맡은 일을 손가락으로 세어 본다. 다섯 개가 넘으면 하나는 내려놓을 후보</li></ul></div></section><section class="block"><h3>이름으로 본 오늘</h3><p>신혁 님 이름 伸爀은 '펼 신'에 '붉을 혁'이에요. 爀은 '불 화(火)' 옆에 '붉을 적(赤)'이 두 개 붙은 글자예요. 불이 무려 세 겹이죠. 한겨울에 태어난 촛불에게 이보다 든든한 이름이 없어요.</p><p>오늘은 이 이름이 제대로 일하는 날이에요. 흙에 덮여 움츠러든 불에게 伸은 '쫙 펴!' 하고, 爀은 '세 겹으로 타올라!' 해요. 그러니 오늘은 몸을 펴고, 밝고 따뜻한 곳에 있는 게 그대로 이름값을 하는 거예요.</p><div class="examples"><span>예를 들면</span><ul><li>의자에서 일어나 기지개 크게 한 번 (伸 실천)</li><li>어두운 자리 말고 조명 밝은 자리에서 일하기 (爀 실천)</li><li>점심이나 저녁은 김치찌개, 육개장처럼 붉고 뜨끈한 국물</li><li>오늘 한 일을 한 사람에게라도 보여 주기. 빛은 보여야 빛이에요</li></ul></div></section>
 <section class="block"><h3>시간대별 흐름</h3>
-  <ul class="timeline"><li class="tone-care"><span class="tl-time">오전 7–9시</span><span class="tl-note"><b>주의</b> 아침에 말이 날카롭게 나가기 쉽다.</span></li><li class="tone-neutral"><span class="tl-time">오전 9–11시</span><span class="tl-note"><b>보통</b> 이동이 많지만 한 만큼 성과가 남는다.</span></li><li class="tone-care"><span class="tl-time">오후 1–3시</span><span class="tl-note"><b>주의</b> 회의에서 의견이 엇갈린다. 결론은 미룬다.</span></li><li class="tone-good"><span class="tl-time">오후 5–7시</span><span class="tl-note"><b>좋음</b> 오늘 가장 좋은 시간. 돈과 관련된 결정.</span></li><li class="tone-good"><span class="tl-time">밤 9–11시</span><span class="tl-note"><b>좋음</b> 속 이야기를 나누고 일찍 눕는다.</span></li></ul>
+  <ul class="timeline"><li class="tone-care"><span class="tl-time">오전 7–9시</span><span class="tl-note"><b>주의</b> 말이 짧고 날카로워요. 첫 메신저에 한 마디 더 붙이기.</span></li><li class="tone-neutral"><span class="tl-time">오전 9–11시</span><span class="tl-note"><b>보통</b> 바쁘게 움직이지만 한 만큼 남아요. 검토 업무 시작하기 좋아요.</span></li><li class="tone-neutral"><span class="tl-time">오전 11–오후 1시</span><span class="tl-note"><b>보통</b> 기운은 올라오는데 헛힘이 들어가요. 점심은 꼭 밖에서 햇볕과 함께.</span></li><li class="tone-care"><span class="tl-time">오후 1–3시</span><span class="tl-note"><b>주의</b> 오늘의 지뢰. 회의에서 의견이 갈려요. 결론은 미루기.</span></li><li class="tone-neutral"><span class="tl-time">오후 3–5시</span><span class="tl-note"><b>보통</b> 이동이나 외근이 생기면 좋은 신호. 몸을 움직이기.</span></li><li class="tone-good"><span class="tl-time">오후 5–7시</span><span class="tl-note"><b>좋음</b> 골든타임! 돈 결정, 중요한 연락은 여기서.</span></li><li class="tone-good"><span class="tl-time">저녁 7–9시</span><span class="tl-note"><b>좋음</b> 몸이 따뜻해지는 시간. 따끈한 저녁과 가벼운 산책.</span></li><li class="tone-good"><span class="tl-time">밤 9–11시</span><span class="tl-note"><b>좋음</b> 동굴 문이 열려요. 속 이야기 나누고 일찍 눕기.</span></li></ul>
   
 </section>
 <div class="grid2">
-  <section class="block"><h3>오늘 운을 돕는 것</h3><dl class="lucky"><div><dt>색</dt><dd>붉은 벽돌색</dd></div><div><dt>방향</dt><dd>남쪽</dd></div><div><dt>숫자</dt><dd>2, 7</dd></div><div><dt>시간</dt><dd>오후 5–7시</dd></div><div><dt>곁에 둘 것</dt><dd>따뜻한 국물, 햇볕, 밝은 스탠드</dd></div></dl></section>
-  <section class="block caution"><h3>한 가지만 조심</h3><p>할 수 있다는 이유로 끝까지 밀지 않는다. 중간에 한 번 쉰다.</p></section>
+  <section class="block"><h3>오늘 운을 돕는 것</h3><dl class="lucky"><div><dt>색</dt><dd>붉은 벽돌색</dd></div><div><dt>방향</dt><dd>남쪽</dd></div><div><dt>숫자</dt><dd>2, 7</dd></div><div><dt>시간</dt><dd>오후 5–7시</dd></div><div><dt>곁에 둘 것</dt><dd>뜨끈한 국물, 햇볕, 밝은 스탠드</dd></div></dl></section>
+  <section class="block caution"><h3>한 가지만 조심</h3><p>'조금만 더'가 세 번째 나오면 그때가 노트북 덮을 시간이에요.</p></section>
 </div>
 <section class="natal"><h2><span class="prompt">❯</span> 신혁는 어떤 사람인가</h2>
   <p class="lede small">한겨울 언 땅 위에 피운 화롯불 같은 사람. 주변이 추울수록 귀해진다.</p>
   <section class="block"><h3>타고난 다섯 기운</h3><div class="elements"><div class="el"><span class="el-k wood">나무</span><span class="bar el-bar wood" role="img" aria-label="나무 0개"><i style="width:0%"></i></span><span class="score-v">0</span></div><div class="el"><span class="el-k fire">불</span><span class="bar el-bar fire" role="img" aria-label="불 2개"><i style="width:100%"></i></span><span class="score-v">2</span></div><div class="el"><span class="el-k earth">흙</span><span class="bar el-bar earth" role="img" aria-label="흙 2개"><i style="width:100%"></i></span><span class="score-v">2</span></div><div class="el"><span class="el-k metal">쇠</span><span class="bar el-bar metal" role="img" aria-label="쇠 1개"><i style="width:50%"></i></span><span class="score-v">1</span></div><div class="el"><span class="el-k water">물</span><span class="bar el-bar water" role="img" aria-label="물 1개"><i style="width:50%"></i></span><span class="score-v">1</span></div></div></section>
   <details open><summary>타고난 성격 풀이</summary><section class="block"><h3>어떤 사람인가</h3><p>신혁도 영지와 같은 '촛불'의 기운을 타고났다. 다만 태어난 때가 일 년 중 가장 추운 한겨울이다. 추운 날 피운 불 곁에는 사람이 모인다. 곁에 있는 사람을 따뜻하게 해 주는 것이 신혁의 타고난 쓰임이다.</p><p>일하는 방식은 '꾸준히 만들고 돌보는 사람'이다. 화려한 한 방보다 매일의 성실함으로 신뢰를 쌓는다.</p></section><section class="block"><h3>강점</h3><p>성실하게 만든 것이 그대로 돈으로 이어지는 구조다. 요령이 아니라 반복과 꼼꼼함으로 버는 사람이라, 회사에서는 시간이 갈수록 '믿고 맡기는 사람'이 된다.</p><p>배우자 자리에 귀한 인연이 앉아 있다. 가까운 사람에게서 힘을 얻는 사주이고, 겉으로 표현을 많이 하지 않아도 속으로 깊이 묶이는 인연이다.</p></section><section class="block"><h3>약한 고리</h3><p>겨울 불이라 따뜻함과 땔감이 늘 부족하다. 햇볕, 걷기, 따뜻한 음식이 그대로 보약이다. 영지와 마찬가지로 '나무'의 기운이 겉에 없어서 쉬는 일을 자꾸 뒤로 미룬다.</p><p>체력의 뿌리와 일하는 자리가 서로 불편한 사이다. 일하면 쉬는 것이 미안하고, 쉬면 일이 마음에 걸린다. 2026년은 그 뿌리에 힘이 실리는 해라 추진력이 좋지만 과로도 함께 오니 속도 조절이 필요하다.</p></section><section class="block"><h3>태어난 시각</h3><p>태어난 시각을 몰라서 사주의 네 기둥 가운데 세 기둥만으로 봤다. 인생 후반과 자녀에 관한 부분은 단정해서 말하지 않는다.</p></section></details>
-  <details open><summary>이름 풀이 · 伸赫</summary><section class="block"><h3>伸 펼 신</h3><p>伸은 사람이 몸을 쭉 편다는 글자다. 신혁은 추운 계절에 태어나 불이 움츠러들기 쉬운데, 이름 첫 글자가 바로 그 움츠림을 펴는 뜻이다. 겨울 불에게 '기지개'를 이름으로 준 셈이다.</p></section><section class="block"><h3>赫 빛날 혁</h3><p>赫은 '붉을 적(赤)'을 두 번 겹쳐 쓴 글자다. 불빛이 겹쳐서 환하다는 뜻이다. 한겨울에 태어난 신혁에게 가장 필요한 것이 불의 온기인데, 이름 한 글자에 불이 두 겹으로 들어 있다.</p></section><section class="block"><h3>이름 전체로 보면</h3><p>伸赫은 '펴서 빛난다'는 문장이다. 움츠린 불을 펴고, 편 불이 크게 빛난다. 묵묵히 일하는 신혁에게 이름이 '드러남'과 '따뜻함'을 보탠다.</p><p>성씨 전은 어떤 한자를 쓰는지 알려 주면 이름 세 글자를 함께 풀 수 있다.</p></section></details>
+  <details open><summary>이름 풀이 · 伸爀</summary><section class="block"><h3>伸 펼 신</h3><p>伸은 사람이 몸을 쭉 편다는 글자다. 신혁은 추운 계절에 태어나 불이 움츠러들기 쉬운데, 이름 첫 글자가 바로 그 움츠림을 펴는 뜻이다. 겨울 불에게 '기지개'를 이름으로 준 셈이다.</p></section><section class="block"><h3>爀 붉을 혁</h3><p>爀은 '불 화(火)' 옆에 '붉을 적(赤)'을 두 번 겹쳐 쓴 글자다. 불 하나에 붉음이 둘, 불빛이 세 겹으로 들어 있다. 활활 타올라 환하게 붉다는 뜻이다. 한겨울에 태어난 신혁에게 가장 필요한 것이 불의 온기인데, 이름 한 글자가 그것을 세 겹으로 채워 준다.</p></section><section class="block"><h3>이름 전체로 보면</h3><p>伸爀은 '펴서 붉게 타오른다'는 문장이다. 움츠린 불을 펴고, 편 불이 환하게 빛난다. 묵묵히 일하는 신혁에게 이름이 '드러남'과 '따뜻함'을 보탠다.</p><p>성씨 전은 어떤 한자를 쓰는지 알려 주면 이름 세 글자를 함께 풀 수 있다.</p></section></details>
   <details><summary>전문 용어로 보기 (사주 표, 오늘의 합과 충, 시간표)</summary>
     <section class="block"><h3>사주 원국</h3><div class="scroll"><table class="pillars">
 <thead><tr><th></th><th scope="col">시주</th><th scope="col">일주</th><th scope="col">월주</th><th scope="col">년주</th></tr></thead>
@@ -279,45 +279,22 @@ footer ul { margin: 0; padding-left: 1.2em }
 </section>
 </div>
 <div class="panel" data-panel="couple" hidden>
-<header class="who"><div class="who-name"><span class="hanja">榮地 · 伸赫</span><span><strong>부부</strong><small>김영지 · 전신혁</small></span></div></header>
-<p class="lede">두 사람이 오늘의 기운을 똑같이 받는다. 둘 다 말수가 줄고 각자 회사 일에 파묻히기 쉬운 날이다. 퇴근 후 함께 먹는 저녁 한 끼가 오늘의 대화다.</p>
-<section class="block"><h3>오늘 부부 점수</h3><div class="scores"><div class="score"><span class="score-k">부부 사이</span><span class="bar" role="img" aria-label="부부 사이 77점"><i style="width:77%"></i></span><span class="score-v">77</span></div></div></section>
-<section class="block"><h3>오늘 두 사람 사이</h3><p>영지는 뭔가 꺼내 놓고 이야기하고 싶고, 신혁은 하던 일에 잠겨 있고 싶은 날이다. 영지가 말을 걸었을 때 신혁의 답이 느려도 무심해서가 아니라 오늘 기운이 그렇다.</p><p>대신 실무에서는 손발이 잘 맞는다. 장보기, 집 정리, 다음 달 생활비 계획 같은 일을 같이 하면 금방 끝난다.</p></section><section class="block"><h3>함께하면 좋은 일</h3><p>오후 5시에서 7시는 두 사람 모두에게 오늘 가장 좋은 시간이다. 퇴근 시간을 맞춰 같이 저녁을 먹는다. 따뜻한 국물이 있는 음식이면 신혁의 몸도 데우고 영지의 속도 편하다.</p><p>밤 9시 이후에는 가계부나 연말 계획처럼 차분한 이야기를 나누기 좋다.</p></section><section class="block"><h3>조심할 일</h3><p>오후 1시에서 3시 사이에 양가 부모님이나 집안일 이야기를 메신저로 꺼내면 엉뚱하게 번질 수 있다. 그 이야기는 저녁에 얼굴 보고 한다.</p></section><section class="block"><h3>아기 계획</h3><p>오늘은 두 사람 모두에게 '낳고 기르는 기운'이 겹친 날이다. 아기 이야기를 편하게 꺼내 보기에 좋은 날이다. 다만 둘 다 기운이 빠지는 날이기도 하니, 결론을 내려 하기보다 서로 어떤 마음인지 들어 보는 정도가 알맞다.</p></section>
-<section class="block caution"><h3>오늘의 한마디</h3><p>오늘은 상대가 쉴 수 있게 일을 하나 덜어 준다.</p></section>
+<header class="who"><div class="who-name"><span class="hanja">榮地 · 伸爀</span><span><strong>부부</strong><small>김영지 · 전신혁</small></span></div></header>
+<p class="lede">오늘 두 분은 같은 기운을 똑같이 받아요. 둘 다 각자 회사 일에 파묻혀서 낮에는 연락이 뜸할 거예요. 그래도 괜찮아요. 오늘 두 분의 대화는 메신저가 아니라 저녁 밥상에서 이뤄져요.</p>
+<section class="block"><h3>오늘 부부 점수</h3><div class="scores"><div class="score-wrap"><div class="score"><span class="score-k">부부 사이</span><span class="bar" role="img" aria-label="부부 사이 77점"><i style="width:77%"></i></span><span class="score-v">77</span></div><p class="score-note">달달하진 않아도 손발이 척척 맞는 '동업자 모드'의 날</p></div></div></section>
+<div class="grid2 todo">
+  <section class="block do"><h3>오늘 하면 좋은 일</h3><ul class="check"><li>퇴근 시간 맞춰서 같이 저녁 먹기</li><li>장보기, 집 정리를 둘이 나눠서 후딱 끝내기</li><li>밤 9시 이후에 다음 달 계획 이야기하기</li></ul></section>
+  <section class="block dont"><h3>오늘은 참는 일</h3><ul class="check"><li>낮에 메신저로 양가·집안일 이야기 꺼내기</li><li>'왜 답이 그것뿐이야' 하고 따지기</li><li>둘 다 지친 채로 밤늦게 큰 결정 내리기</li></ul></section>
+</div>
+<section class="block"><h3>오늘 두 사람 사이</h3><p>오늘의 그림은 이래요. 영지 님은 서랍에서 이것저것 꺼내 놓고 '이것 좀 봐' 하고 싶고, 신혁 님은 책상에 고개를 박고 '잠깐만, 이것만 하고' 하는 날이에요. 박자가 살짝 어긋나요.</p><p>그런데 '같이 뭔가를 처리하는 일'에서는 오늘 두 분이 환상의 팀이에요. 원래도 일하는 방식과 돈 감각이 잘 맞는 부부인데, 오늘은 그 궁합이 평소보다 단단해요. 감정 이야기보다 실무를 같이 하면서 가까워지는 날이에요.</p><div class="examples"><span>예를 들면</span><ul><li>마트에서 영지 님은 목록을 읽고 신혁 님은 카트를 민다. 20분 만에 끝난다</li><li>한 사람이 빨래를 개는 동안 한 사람이 청소기를 돌린다</li><li>'이번 달 얼마 썼지?'를 같이 앱으로 확인한다</li></ul></div></section><section class="block"><h3>함께하면 좋은 일</h3><p>오후 5시에서 7시는 두 분 모두에게 오늘 최고의 시간이에요. 이 시간에 만나서 저녁을 먹으면 딱 좋아요. 메뉴는 국물 있는 따뜻한 음식. 신혁 님의 겨울 촛불도 데우고, 오늘 예민한 영지 님의 속도 달래 줘요.</p><p>밤 9시 이후도 좋아요. 이때는 가계부, 연말 계획, 내년 휴가처럼 차분하게 앉아서 할 이야기가 잘 풀려요.</p><div class="examples"><span>예를 들면</span><ul><li>저녁 메뉴 추천: 샤브샤브, 순두부찌개, 칼국수, 전골</li><li>밤 9시의 대화 주제: 연말에 어디 갈지, 내년에 모을 돈, 서로 요즘 회사 어떤지</li></ul></div></section><section class="block"><h3>조심할 일</h3><p>오후 1시에서 3시 사이가 오늘의 지뢰밭이에요. 이 시간에 양가 부모님, 명절, 집안일 분담 같은 이야기를 메신저로 꺼내면 불씨가 엉뚱한 데로 튀어요. 두 분 다 그 시간엔 판단이 흐려요.</p><p>그리고 오늘은 둘 다 서운한 걸 말 안 하고 삭이기 쉬운 날이에요. 닮은꼴 부부의 약점이죠. 한 사람이 '나 오늘 좀 지쳤어' 하고 먼저 말해 주면 다른 한 사람도 바로 풀려요.</p><div class="examples"><span>예를 들면</span><ul><li>낮에 떠오른 집안일 이야기는 메모해 뒀다가 저녁에 얼굴 보고 하기</li><li>집에 오자마자 '나 오늘 배터리 10%야'라고 먼저 선언하기</li></ul></div></section><section class="block"><h3>아기 계획</h3><p>오늘은 두 분 모두에게 '낳고 기르는 기운'이 겹쳐서 들어온 날이에요. 그래서 아기 이야기가 평소보다 편하게 나와요. 누가 먼저 꺼내도 어색하지 않은 날이에요.</p><p>다만 오늘은 둘 다 방전되는 날이기도 하니, '그래서 언제?'까지 가지는 마세요. 오늘은 서로 어떤 그림을 그리고 있는지 들어 보는 것까지만요.</p><div class="examples"><span>예를 들면</span><ul><li>'우리 아기 생기면 어떤 부모일 것 같아?'처럼 가벼운 질문으로 시작하기</li><li>결론이나 날짜를 정하려 하지 않기. 오늘은 듣는 날</li></ul></div></section>
+<section class="block caution"><h3>오늘의 한마디</h3><p>오늘의 사랑 표현은 '내가 할게' 한마디예요. 상대 일을 하나 덜어 주세요.</p></section>
 <section class="natal"><h2><span class="prompt">❯</span> 두 사람은 어떤 부부인가</h2>
   <p class="lede small">같은 날의 기운을 타고난 두 등불. 한 사람은 가을에, 한 사람은 겨울에 켜졌다.</p>
-  <section class="block"><h3>닮은꼴 부부</h3><p>두 사람은 태어난 날의 기운이 완전히 같다. 예순 가지 가운데 하나가 겹친 것이라 드문 일이다. 타고난 성격의 뼈대, 사람을 대하는 태도, 매일 컨디션이 오르내리는 박자가 닮았다. 말하지 않아도 상대 기분을 아는 날이 많은 부부다.</p><p>닮은 만큼 약점도 같다. 둘 다 서운한 것을 속으로 삭이는 편이라, 같은 날 같이 가라앉을 수 있다. 한 사람이 처진 날에는 다른 한 사람이 먼저 불을 켜 주기로 정해 두면 좋다.</p></section><section class="block"><h3>서로를 채워 주는 점</h3><p>각자의 사주에 비어 있는 자리가 하나씩 있는데, 두 사람이 만나면 그 자리가 서로 맞물려 채워진다. 혼자서는 헛돌던 부분이 둘이 있을 때 쓸모를 찾는다.</p><p>일하는 방식과 돈에 대한 감각도 잘 맞는다. 신혁이 꾸준히 벌고 모으면, 영지가 어디에 쓰고 어떻게 불릴지 판단하는 쪽이 어울린다. 맞벌이 살림에서 좋은 짝이다.</p></section><section class="block"><h3>조심할 점</h3><p>양가 부모님, 명절, 집안일처럼 '각자 자라 온 방식'이 걸린 일에서 의견이 갈리기 쉽다. 누가 옳은지를 따지면 끝이 없으니, 순서와 담당을 정하는 식으로 푸는 것이 좋다.</p><p>돈은 한 통장에 다 섞기보다 공동 생활비와 각자 용돈을 나눠 두는 편이 덜 부딪힌다.</p></section><section class="block"><h3>아기에 대해</h3><p>두 사람 모두 '낳고 기르는 힘'이 사주에 뚜렷하게 들어 있다. 돌보고 먹이는 일에 소질이 있는 부부다. 다만 둘 다 일에 기운을 많이 쓰는 사주라, 아기 계획은 서두르기보다 두 사람의 체력과 쉬는 시간을 먼저 챙긴 뒤가 좋다. 매일 운세에서 이 기운이 좋은 날은 따로 알려 준다.</p></section><section class="block"><h3>이름으로 본 궁합</h3><p>영지 이름의 榮은 나무, 신혁 이름의 伸과 赫은 불이다. 나무가 불을 키운다. 영지가 신혁을 북돋는 이름이다.</p><p>그 불은 다시 영지 이름의 地, 땅을 데운다. 신혁이 영지의 자리를 따뜻하게 하는 이름이다. 네 글자가 끊기지 않고 서로를 돌린다.</p></section>
+  <section class="block"><h3>닮은꼴 부부</h3><p>두 사람은 태어난 날의 기운이 완전히 같다. 예순 가지 가운데 하나가 겹친 것이라 드문 일이다. 타고난 성격의 뼈대, 사람을 대하는 태도, 매일 컨디션이 오르내리는 박자가 닮았다. 말하지 않아도 상대 기분을 아는 날이 많은 부부다.</p><p>닮은 만큼 약점도 같다. 둘 다 서운한 것을 속으로 삭이는 편이라, 같은 날 같이 가라앉을 수 있다. 한 사람이 처진 날에는 다른 한 사람이 먼저 불을 켜 주기로 정해 두면 좋다.</p></section><section class="block"><h3>서로를 채워 주는 점</h3><p>각자의 사주에 비어 있는 자리가 하나씩 있는데, 두 사람이 만나면 그 자리가 서로 맞물려 채워진다. 혼자서는 헛돌던 부분이 둘이 있을 때 쓸모를 찾는다.</p><p>일하는 방식과 돈에 대한 감각도 잘 맞는다. 신혁이 꾸준히 벌고 모으면, 영지가 어디에 쓰고 어떻게 불릴지 판단하는 쪽이 어울린다. 맞벌이 살림에서 좋은 짝이다.</p></section><section class="block"><h3>조심할 점</h3><p>양가 부모님, 명절, 집안일처럼 '각자 자라 온 방식'이 걸린 일에서 의견이 갈리기 쉽다. 누가 옳은지를 따지면 끝이 없으니, 순서와 담당을 정하는 식으로 푸는 것이 좋다.</p><p>돈은 한 통장에 다 섞기보다 공동 생활비와 각자 용돈을 나눠 두는 편이 덜 부딪힌다.</p></section><section class="block"><h3>아기에 대해</h3><p>두 사람 모두 '낳고 기르는 힘'이 사주에 뚜렷하게 들어 있다. 돌보고 먹이는 일에 소질이 있는 부부다. 다만 둘 다 일에 기운을 많이 쓰는 사주라, 아기 계획은 서두르기보다 두 사람의 체력과 쉬는 시간을 먼저 챙긴 뒤가 좋다. 매일 운세에서 이 기운이 좋은 날은 따로 알려 준다.</p></section><section class="block"><h3>이름으로 본 궁합</h3><p>영지 이름의 榮은 나무, 신혁 이름의 伸과 爀은 불이다. 나무가 불을 키운다. 영지가 신혁을 북돋는 이름이다.</p><p>그 불은 다시 영지 이름의 地, 땅을 데운다. 신혁이 영지의 자리를 따뜻하게 하는 이름이다. 네 글자가 끊기지 않고 서로를 돌린다.</p></section>
   <details><summary>전문 용어로 보기 (두 사주 사이의 합과 충)</summary><ul class="plain"><li>영지 년지 未 × 신혁 년지 午: 未午합 → 火·土 (육합)</li><li>영지 년지 未 × 신혁 월지 丑: 未丑충 (충)</li><li>영지 년지 未 × 신혁 월지 丑: 未丑형 (형)</li><li>영지 년지 未 × 신혁 일지 亥: 未亥 (亥卯未 木국) (반합)</li><li>영지 월지 酉 × 신혁 월지 丑: 酉丑 (巳酉丑 金국) (반합)</li><li>영지 일지 亥 × 신혁 일지 亥: 亥亥자형 (자형)</li><li>영지 시지 未 × 신혁 년지 午: 未午합 → 火·土 (육합)</li><li>영지 시지 未 × 신혁 월지 丑: 未丑충 (충)</li><li>영지 시지 未 × 신혁 월지 丑: 未丑형 (형)</li><li>영지 시지 未 × 신혁 일지 亥: 未亥 (亥卯未 木국) (반합)</li></ul></details>
 </section>
 </div>
 </article>
-  <section class="ask" id="ask">
-  <h2><span class="prompt">❯</span> 궁금한 것 물어보기</h2>
-  <p class="muted">두 사람의 사주와 오늘 운세를 바탕으로 Claude가 답합니다. 예: 오늘 회의는 몇 시가 좋을까?</p>
-  <div class="ask-chips">
-    <button type="button" data-q="오늘 회사에서 중요한 이야기를 꺼내려면 몇 시가 좋을까?">회사에서 말 꺼내기 좋은 시간</button>
-    <button type="button" data-q="오늘 저녁에 부부가 같이 하면 좋은 일을 추천해 줘.">오늘 저녁 뭐 하지</button>
-    <button type="button" data-q="이번 주에 큰돈 쓰는 결정을 해도 괜찮을까?">돈 쓰는 결정</button>
-  </div>
-  <div class="ask-log" id="ask-log" aria-live="polite"></div>
-  <form class="ask-form" id="ask-form">
-    <label class="sr" for="ask-input">질문</label>
-    <textarea id="ask-input" rows="2" placeholder="질문을 적어 주세요" required></textarea>
-    <button type="submit" id="ask-send">묻기</button>
-  </form>
-  <p class="ask-status muted" id="ask-status" role="status"></p>
-  <details id="ask-settings">
-    <summary>API 키 설정</summary>
-    <div class="ask-key">
-      <label for="ask-key">Anthropic API 키</label>
-      <input id="ask-key" type="password" autocomplete="off" placeholder="sk-ant-..." spellcheck="false">
-      <button type="button" id="ask-key-save">저장</button>
-      <button type="button" id="ask-key-clear">지우기</button>
-    </div>
-    <p class="muted">키는 이 기기의 브라우저에만 저장되고, 질문할 때 Anthropic으로만 보냅니다. 이 페이지나 저장소에는 올라가지 않습니다. 질문할 때마다 본인 키로 요금이 나갑니다. 함께 쓰는 기기에서는 다 쓴 뒤 지워 주세요.</p>
-  </details>
-</section>
-
   <footer>
     <ul><li>생년월일은 양력으로, 시각은 한국 시간 그대로 계산했습니다.</li><li>신혁은 태어난 시각을 몰라 사주의 세 기둥만으로 봤습니다.</li><li>이름 풀이는 글자의 뜻과 기운으로 봤고, 획수 풀이는 넣지 않았습니다.</li></ul>
     <p>운세는 하루를 돌아보는 재미로 읽어 주세요. 중요한 결정의 근거로 삼지는 마세요.</p>
@@ -342,141 +319,6 @@ footer ul { margin: 0; padding-left: 1.2em }
   });
   var saved = store.get('unse-tab');
   if (saved && document.querySelector('.panel[data-panel="' + saved + '"]')) showTab(saved);
-})();
-</script>
-<script type="application/json" id="unse-context">{"상황":"# 두 사람의 상황 (운세를 쓸 때 반영)\n\n- 김영지와 전신혁은 부부다.\n- 둘 다 회사원이다. 일 이야기는 회사 생활(보고, 회의, 상사, 동료, 마감, 출퇴근)에 맞춰 쓴다.\n- 아기는 아직 없다. 부부 탭에 아기 계획 꼭지를 두되, 부담 주지 않게 가볍게 쓴다.\n- 애정운은 연애가 아니라 부부 사이로 쓴다 (집안일, 생활비, 양가, 퇴근 후 시간).\n","사람":{"yeongji":{"name":"영지","hanja":"榮地","hanjaMeaning":["영화로울 영","땅 지"],"birth":{"year":1991,"month":9,"day":14,"hour":14,"minute":0},"surname":"김","fullName":"김영지"},"shinhyuk":{"name":"신혁","hanja":"伸赫","hanjaMeaning":["펼 신","빛날 혁"],"birth":{"year":1991,"month":1,"day":17,"hour":null,"minute":null},"surname":"전","fullName":"전신혁"}},"타고난_풀이":{"people":{"yeongji":{"oneLine":"가을 저녁에 켠 등불 같은 사람. 쉽게 꺼지지 않고, 비추는 곳마다 좋은 것이 드러난다.","natalSections":[{"title":"어떤 사람인가","body":"영지는 '촛불'의 기운을 타고났다. 큰 불처럼 요란하지 않지만 가까이 있는 사람을 따뜻하게 하고, 어두운 곳을 정확히 비춘다. 섬세하고 눈썰미가 좋다.\n\n태어난 계절은 가을 한가운데다. 가을은 열매와 보석의 계절이라, 촛불이 보석을 비추는 그림이 된다. 가치 있는 것을 알아보고 그것을 돈과 성과로 바꾸는 감각이 타고났다."},{"title":"강점","body":"사주 안에 같은 촛불이 셋이나 있다. 그만큼 자기 기준이 분명하고, 남의 말에 쉽게 흔들리지 않는다. 맡은 일은 혼자서도 끝까지 끌고 간다.\n\n'만든다 → 다듬는다 → 값을 받는다'로 이어지는 길이 잘 닦여 있다. 회사에서는 기획한 것을 실제 결과물로 만들고 숫자로 증명하는 일에 강하다. 그리고 일터와 가까운 관계에 도와주는 사람이 늘 있는 구조다. 어려울 때 손 내미는 사람이 꼭 나타난다."},{"title":"약한 고리","body":"촛불을 계속 타게 하는 땔감, 곧 '나무'의 기운이 겉으로는 하나도 없다. 나무는 쉬는 힘, 배우는 힘, 기댈 곳을 뜻한다. 없는 것은 아니고 창고 안에 숨어 있어서, 일부러 꺼내 써야 한다. 잠, 산책, 책, 초록이 있는 공간이 영지에게는 약이다.\n\n재주가 제값을 인정받기까지 시간이 걸리는 편이다. 실력이 모자라서가 아니라 드러나는 시기가 늦게 오는 사주다. 그리고 돈과 기회 앞에서는 경쟁자가 붙기 쉬우니, 함께 쓰는 돈은 몫을 먼저 정해 두는 것이 좋다."},{"title":"관계에서","body":"배우자 자리에 '반듯함'이 앉아 있다. 관계에서 믿음과 약속을 가장 무겁게 여기고, 한번 맺은 인연에 책임을 다한다. 대신 서운한 것을 속으로 삭이는 편이라, 쌓이기 전에 말로 꺼내는 연습이 필요하다."}],"nameSections":[{"title":"榮 영화로울 영","body":"榮은 나무 위에 꽃이 불꽃처럼 가득 핀 모습에서 나온 글자다. 나무의 기운을 가진 글자다. 영지 사주에 딱 하나 모자란 것이 나무인데, 이름 첫 글자가 그것을 채워 준다. 누가 '영지야' 하고 부를 때마다 촛불에 장작을 하나씩 얹는 셈이다."},{"title":"地 땅 지","body":"地는 흙의 기운이다. 촛불에게 흙은 '내가 만들어 내는 것', 곧 재주와 결실을 뜻한다. 사주에서 그 자리가 조금 비어 있는데 이름이 한 번 더 채워 준다. 불이 머물 자리, 꽃이 뿌리 내릴 땅이 이름 안에 있다."},{"title":"이름 전체로 보면","body":"榮地는 '꽃이 피는 땅'이다. 나무가 불을 키우고, 불이 땅을 데운다. 이름의 첫 글자가 영지를 키우고, 영지가 이름의 둘째 글자를 키우는 모양이라 기운이 한 줄로 흐른다.\n\n성씨 김(金)은 쇠와 보석의 기운이다. 촛불에게 쇠는 재물이다. 김영지 세 글자를 이으면 '기르고(榮), 피우고(地), 거둔다(金)'는 한 문장이 된다."}]},"shinhyuk":{"oneLine":"한겨울 언 땅 위에 피운 화롯불 같은 사람. 주변이 추울수록 귀해진다.","natalSections":[{"title":"어떤 사람인가","body":"신혁도 영지와 같은 '촛불'의 기운을 타고났다. 다만 태어난 때가 일 년 중 가장 추운 한겨울이다. 추운 날 피운 불 곁에는 사람이 모인다. 곁에 있는 사람을 따뜻하게 해 주는 것이 신혁의 타고난 쓰임이다.\n\n일하는 방식은 '꾸준히 만들고 돌보는 사람'이다. 화려한 한 방보다 매일의 성실함으로 신뢰를 쌓는다."},{"title":"강점","body":"성실하게 만든 것이 그대로 돈으로 이어지는 구조다. 요령이 아니라 반복과 꼼꼼함으로 버는 사람이라, 회사에서는 시간이 갈수록 '믿고 맡기는 사람'이 된다.\n\n배우자 자리에 귀한 인연이 앉아 있다. 가까운 사람에게서 힘을 얻는 사주이고, 겉으로 표현을 많이 하지 않아도 속으로 깊이 묶이는 인연이다."},{"title":"약한 고리","body":"겨울 불이라 따뜻함과 땔감이 늘 부족하다. 햇볕, 걷기, 따뜻한 음식이 그대로 보약이다. 영지와 마찬가지로 '나무'의 기운이 겉에 없어서 쉬는 일을 자꾸 뒤로 미룬다.\n\n체력의 뿌리와 일하는 자리가 서로 불편한 사이다. 일하면 쉬는 것이 미안하고, 쉬면 일이 마음에 걸린다. 2026년은 그 뿌리에 힘이 실리는 해라 추진력이 좋지만 과로도 함께 오니 속도 조절이 필요하다."},{"title":"태어난 시각","body":"태어난 시각을 몰라서 사주의 네 기둥 가운데 세 기둥만으로 봤다. 인생 후반과 자녀에 관한 부분은 단정해서 말하지 않는다."}],"nameSections":[{"title":"伸 펼 신","body":"伸은 사람이 몸을 쭉 편다는 글자다. 신혁은 추운 계절에 태어나 불이 움츠러들기 쉬운데, 이름 첫 글자가 바로 그 움츠림을 펴는 뜻이다. 겨울 불에게 '기지개'를 이름으로 준 셈이다."},{"title":"赫 빛날 혁","body":"赫은 '붉을 적(赤)'을 두 번 겹쳐 쓴 글자다. 불빛이 겹쳐서 환하다는 뜻이다. 한겨울에 태어난 신혁에게 가장 필요한 것이 불의 온기인데, 이름 한 글자에 불이 두 겹으로 들어 있다."},{"title":"이름 전체로 보면","body":"伸赫은 '펴서 빛난다'는 문장이다. 움츠린 불을 펴고, 편 불이 크게 빛난다. 묵묵히 일하는 신혁에게 이름이 '드러남'과 '따뜻함'을 보탠다.\n\n성씨 전은 어떤 한자를 쓰는지 알려 주면 이름 세 글자를 함께 풀 수 있다."}]}},"couple":{"oneLine":"같은 날의 기운을 타고난 두 등불. 한 사람은 가을에, 한 사람은 겨울에 켜졌다.","sections":[{"title":"닮은꼴 부부","body":"두 사람은 태어난 날의 기운이 완전히 같다. 예순 가지 가운데 하나가 겹친 것이라 드문 일이다. 타고난 성격의 뼈대, 사람을 대하는 태도, 매일 컨디션이 오르내리는 박자가 닮았다. 말하지 않아도 상대 기분을 아는 날이 많은 부부다.\n\n닮은 만큼 약점도 같다. 둘 다 서운한 것을 속으로 삭이는 편이라, 같은 날 같이 가라앉을 수 있다. 한 사람이 처진 날에는 다른 한 사람이 먼저 불을 켜 주기로 정해 두면 좋다."},{"title":"서로를 채워 주는 점","body":"각자의 사주에 비어 있는 자리가 하나씩 있는데, 두 사람이 만나면 그 자리가 서로 맞물려 채워진다. 혼자서는 헛돌던 부분이 둘이 있을 때 쓸모를 찾는다.\n\n일하는 방식과 돈에 대한 감각도 잘 맞는다. 신혁이 꾸준히 벌고 모으면, 영지가 어디에 쓰고 어떻게 불릴지 판단하는 쪽이 어울린다. 맞벌이 살림에서 좋은 짝이다."},{"title":"조심할 점","body":"양가 부모님, 명절, 집안일처럼 '각자 자라 온 방식'이 걸린 일에서 의견이 갈리기 쉽다. 누가 옳은지를 따지면 끝이 없으니, 순서와 담당을 정하는 식으로 푸는 것이 좋다.\n\n돈은 한 통장에 다 섞기보다 공동 생활비와 각자 용돈을 나눠 두는 편이 덜 부딪힌다."},{"title":"아기에 대해","body":"두 사람 모두 '낳고 기르는 힘'이 사주에 뚜렷하게 들어 있다. 돌보고 먹이는 일에 소질이 있는 부부다. 다만 둘 다 일에 기운을 많이 쓰는 사주라, 아기 계획은 서두르기보다 두 사람의 체력과 쉬는 시간을 먼저 챙긴 뒤가 좋다. 매일 운세에서 이 기운이 좋은 날은 따로 알려 준다."},{"title":"이름으로 본 궁합","body":"영지 이름의 榮은 나무, 신혁 이름의 伸과 赫은 불이다. 나무가 불을 키운다. 영지가 신혁을 북돋는 이름이다.\n\n그 불은 다시 영지 이름의 地, 땅을 데운다. 신혁이 영지의 자리를 따뜻하게 하는 이름이다. 네 글자가 끊기지 않고 서로를 돌린다."}]},"notes":["생년월일은 양력으로, 시각은 한국 시간 그대로 계산했습니다.","신혁은 태어난 시각을 몰라 사주의 세 기둥만으로 봤습니다.","이름 풀이는 글자의 뜻과 기운으로 봤고, 획수 풀이는 넣지 않았습니다."]},"오늘_계산값":{"date":"2026-11-11","weekday":"수요일","solarTerm":"입동","today":{"year":{"stem":"丙","branch":"午","ko":"병오","stemElement":"火","branchElement":"火","hidden":"丙己丁"},"month":{"stem":"己","branch":"亥","ko":"기해","stemElement":"土","branchElement":"水","hidden":"戊甲壬"},"day":{"stem":"己","branch":"丑","ko":"기축","stemElement":"土","branchElement":"土","hidden":"癸辛己"},"hour":{"stem":"庚","branch":"午","ko":"경오","stemElement":"金","branchElement":"火","hidden":"丙己丁"}},"people":{"yeongji":{"name":"영지","hanja":"榮地","natal":{"chart":{"year":{"stem":"辛","branch":"未","ko":"신미","stemElement":"金","branchElement":"土","hidden":"丁乙己","stemGod":"편재","branchGod":"식신","hiddenGods":["丁 비견","乙 편인","己 식신"],"stage":"관대"},"month":{"stem":"丁","branch":"酉","ko":"정유","stemElement":"火","branchElement":"金","hidden":"庚辛","stemGod":"비견","branchGod":"편재","hiddenGods":["庚 정재","辛 편재"],"stage":"장생"},"day":{"stem":"丁","branch":"亥","ko":"정해","stemElement":"火","branchElement":"水","hidden":"戊甲壬","stemGod":"일간(나)","branchGod":"정관","hiddenGods":["戊 상관","甲 정인","壬 정관"],"stage":"태"},"hour":{"stem":"丁","branch":"未","ko":"정미","stemElement":"火","branchElement":"土","hidden":"丁乙己","stemGod":"비견","branchGod":"식신","hiddenGods":["丁 비견","乙 편인","己 식신"],"stage":"관대"}},"dayMaster":"丁火","animal":"양","bornInTerm":"백로","elements":{"木":0,"火":3,"土":2,"金":2,"水":1},"void":["午","未"],"internalRelations":["년지·일지 未亥 (亥卯未 木국) (반합)","일지·시지 亥未 (亥卯未 木국) (반합)"],"hourKnown":true},"today":{"day":{"stemGod":"식신","branchGod":"식신","stage":"묘","hiddenGods":["癸 편관","辛 편재","己 식신"]},"month":{"stemGod":"식신","branchGod":"정관","stage":"태"},"year":{"stemGod":"겁재","branchGod":"비견","stage":"건록"},"relations":[{"type":"충","note":"丑未충","with":"년지 未","from":"일진 丑"},{"type":"형","note":"丑未형","with":"년지 未","from":"일진 丑"},{"type":"반합","note":"丑酉 (巳酉丑 金국)","with":"월지 酉","from":"일진 丑"},{"type":"충","note":"丑未충","with":"시지 未","from":"일진 丑"},{"type":"형","note":"丑未형","with":"시지 未","from":"일진 丑"},{"type":"반합","note":"亥未 (亥卯未 木국)","with":"년지 未","from":"월운 亥"},{"type":"자형","note":"亥亥자형","with":"일지 亥","from":"월운 亥"},{"type":"반합","note":"亥未 (亥卯未 木국)","with":"시지 未","from":"월운 亥"},{"type":"천간합","note":"丙辛합 → 水","with":"년간 辛","from":"세운 丙"},{"type":"육합","note":"午未합 → 火·土","with":"년지 未","from":"세운 午"},{"type":"육합","note":"午未합 → 火·土","with":"시지 未","from":"세운 午"}],"stars":[],"voidDay":false,"hours":[{"time":"23–01시","pillar":"甲子","stemGod":"정인","branchGod":"편관","stage":"절","relations":["년지와 子未해","년지와 子未원진","월지와 子酉파","시지와 子未해","시지와 子未원진"],"stars":["도화(일지 기준)","도화(년지 기준)"],"void":false},{"time":"01–03시","pillar":"乙丑","stemGod":"편인","branchGod":"식신","stage":"묘","relations":["년지와 丑未충","년지와 丑未형","월지와 丑酉 (巳酉丑 金국)","시지와 丑未충","시지와 丑未형"],"stars":[],"void":false},{"time":"03–05시","pillar":"丙寅","stemGod":"겁재","branchGod":"정인","stage":"사","relations":["월지와 寅酉원진","일지와 寅亥합 → 木","일지와 寅亥파"],"stars":[],"void":false},{"time":"05–07시","pillar":"丁卯","stemGod":"비견","branchGod":"편인","stage":"병","relations":["년지와 卯未 (亥卯未 木국)","월지와 卯酉충","일지와 卯亥 (亥卯未 木국)","시지와 卯未 (亥卯未 木국)"],"stars":[],"void":false},{"time":"07–09시","pillar":"戊辰","stemGod":"상관","branchGod":"상관","stage":"쇠","relations":["월지와 辰酉합 → 金","일지와 辰亥원진"],"stars":[],"void":false},{"time":"09–11시","pillar":"己巳","stemGod":"식신","branchGod":"겁재","stage":"제왕","relations":["월지와 巳酉 (巳酉丑 金국)","일지와 巳亥충"],"stars":["역마(일지 기준)","역마(년지 기준)"],"void":false},{"time":"11–13시","pillar":"庚午","stemGod":"정재","branchGod":"비견","stage":"건록","relations":["년지와 午未합 → 火·土","시지와 午未합 → 火·土"],"stars":[],"void":true},{"time":"13–15시","pillar":"辛未","stemGod":"편재","branchGod":"식신","stage":"관대","relations":["일지와 未亥 (亥卯未 木국)"],"stars":["화개(일지 기준)","화개(년지 기준)"],"void":true},{"time":"15–17시","pillar":"壬申","stemGod":"정관","branchGod":"정재","stage":"목욕","relations":["일지와 申亥해"],"stars":[],"void":false},{"time":"17–19시","pillar":"癸酉","stemGod":"편관","branchGod":"편재","stage":"장생","relations":["월지와 酉酉자형"],"stars":["천을귀인"],"void":false},{"time":"19–21시","pillar":"甲戌","stemGod":"정인","branchGod":"상관","stage":"양","relations":["년지와 戌未형","년지와 戌未파","월지와 戌酉해","시지와 戌未형","시지와 戌未파"],"stars":[],"void":false},{"time":"21–23시","pillar":"乙亥","stemGod":"편인","branchGod":"정관","stage":"태","relations":["년지와 亥未 (亥卯未 木국)","일지와 亥亥자형","시지와 亥未 (亥卯未 木국)"],"stars":["천을귀인"],"void":false}]}},"shinhyuk":{"name":"신혁","hanja":"伸赫","natal":{"chart":{"year":{"stem":"庚","branch":"午","ko":"경오","stemElement":"金","branchElement":"火","hidden":"丙己丁","stemGod":"정재","branchGod":"비견","hiddenGods":["丙 겁재","己 식신","丁 비견"],"stage":"건록"},"month":{"stem":"己","branch":"丑","ko":"기축","stemElement":"土","branchElement":"土","hidden":"癸辛己","stemGod":"식신","branchGod":"식신","hiddenGods":["癸 편관","辛 편재","己 식신"],"stage":"묘"},"day":{"stem":"丁","branch":"亥","ko":"정해","stemElement":"火","branchElement":"水","hidden":"戊甲壬","stemGod":"일간(나)","branchGod":"정관","hiddenGods":["戊 상관","甲 정인","壬 정관"],"stage":"태"}},"dayMaster":"丁火","animal":"말","bornInTerm":"소한","elements":{"木":0,"火":2,"土":2,"金":1,"水":1},"void":["午","未"],"internalRelations":["년지·월지 午丑해 (해)","년지·월지 午丑원진 (원진)"],"hourKnown":false},"today":{"day":{"stemGod":"식신","branchGod":"식신","stage":"묘","hiddenGods":["癸 편관","辛 편재","己 식신"]},"month":{"stemGod":"식신","branchGod":"정관","stage":"태"},"year":{"stemGod":"겁재","branchGod":"비견","stage":"건록"},"relations":[{"type":"해","note":"丑午해","with":"년지 午","from":"일진 丑"},{"type":"원진","note":"丑午원진","with":"년지 午","from":"일진 丑"},{"type":"복음","note":"己丑 같은 기둥","with":"월주 己丑","from":"일진 己丑"},{"type":"자형","note":"亥亥자형","with":"일지 亥","from":"월운 亥"},{"type":"자형","note":"午午자형","with":"년지 午","from":"세운 午"},{"type":"해","note":"午丑해","with":"월지 丑","from":"세운 午"},{"type":"원진","note":"午丑원진","with":"월지 丑","from":"세운 午"}],"stars":[],"voidDay":false,"hours":[{"time":"23–01시","pillar":"甲子","stemGod":"정인","branchGod":"편관","stage":"절","relations":["년지와 子午충","월지와 子丑합 → 土"],"stars":["도화(일지 기준)"],"void":false},{"time":"01–03시","pillar":"乙丑","stemGod":"편인","branchGod":"식신","stage":"묘","relations":["년지와 丑午해","년지와 丑午원진"],"stars":[],"void":false},{"time":"03–05시","pillar":"丙寅","stemGod":"겁재","branchGod":"정인","stage":"사","relations":["년지와 寅午 (寅午戌 火국)","일지와 寅亥합 → 木","일지와 寅亥파"],"stars":[],"void":false},{"time":"05–07시","pillar":"丁卯","stemGod":"비견","branchGod":"편인","stage":"병","relations":["년지와 卯午파","일지와 卯亥 (亥卯未 木국)"],"stars":["도화(년지 기준)"],"void":false},{"time":"07–09시","pillar":"戊辰","stemGod":"상관","branchGod":"상관","stage":"쇠","relations":["월지와 辰丑파","일지와 辰亥원진"],"stars":[],"void":false},{"time":"09–11시","pillar":"己巳","stemGod":"식신","branchGod":"겁재","stage":"제왕","relations":["월지와 巳丑 (巳酉丑 金국)","일지와 巳亥충"],"stars":["역마(일지 기준)"],"void":false},{"time":"11–13시","pillar":"庚午","stemGod":"정재","branchGod":"비견","stage":"건록","relations":["년지와 午午자형","월지와 午丑해","월지와 午丑원진"],"stars":[],"void":true},{"time":"13–15시","pillar":"辛未","stemGod":"편재","branchGod":"식신","stage":"관대","relations":["년지와 未午합 → 火·土","월지와 未丑충","월지와 未丑형","일지와 未亥 (亥卯未 木국)"],"stars":["화개(일지 기준)"],"void":true},{"time":"15–17시","pillar":"壬申","stemGod":"정관","branchGod":"정재","stage":"목욕","relations":["일지와 申亥해"],"stars":["역마(년지 기준)"],"void":false},{"time":"17–19시","pillar":"癸酉","stemGod":"편관","branchGod":"편재","stage":"장생","relations":["월지와 酉丑 (巳酉丑 金국)"],"stars":["천을귀인"],"void":false},{"time":"19–21시","pillar":"甲戌","stemGod":"정인","branchGod":"상관","stage":"양","relations":["년지와 戌午 (寅午戌 火국)","월지와 戌丑형"],"stars":["화개(년지 기준)"],"void":false},{"time":"21–23시","pillar":"乙亥","stemGod":"편인","branchGod":"정관","stage":"태","relations":["일지와 亥亥자형"],"stars":["천을귀인"],"void":false}]}}},"couple":{"natalRelations":["영지 년지 未 × 신혁 년지 午: 未午합 → 火·土 (육합)","영지 년지 未 × 신혁 월지 丑: 未丑충 (충)","영지 년지 未 × 신혁 월지 丑: 未丑형 (형)","영지 년지 未 × 신혁 일지 亥: 未亥 (亥卯未 木국) (반합)","영지 월지 酉 × 신혁 월지 丑: 酉丑 (巳酉丑 金국) (반합)","영지 일지 亥 × 신혁 일지 亥: 亥亥자형 (자형)","영지 시지 未 × 신혁 년지 午: 未午합 → 火·土 (육합)","영지 시지 未 × 신혁 월지 丑: 未丑충 (충)","영지 시지 未 × 신혁 월지 丑: 未丑형 (형)","영지 시지 未 × 신혁 일지 亥: 未亥 (亥卯未 木국) (반합)"]}},"오늘_운세":{"date":"2026-11-11","headline":"새 일을 벌이기보다 하던 일을 마무리하면 좋은 날.","dayNote":"오늘은 축축한 겨울 흙의 기운이 겹친 날이다. 촛불 같은 두 사람에게 흙은 '내 손으로 만들어 내는 것'을 뜻한다. 만들고 챙기는 힘은 커지지만, 불이 흙을 데우느라 기운이 빨리 빠진다.","people":{"yeongji":{"summary":"묵혀 둔 일이 다시 떠오르고, 그것이 성과와 돈으로 이어지기 좋은 날이다. 다만 평소보다 빨리 지친다.","keywords":["마무리","정산","저녁 약속"],"points":["좋은 점: 만든 것에 값이 붙는다. 정산, 견적, 가격 정하기에 유리하다.","조심할 점: 상사나 가족에게 말이 날카롭게 나가기 쉽다.","가장 좋은 시간: 오후 5시–7시."],"scores":{"total":76,"love":72,"money":84,"work":78,"health":62},"sections":[{"title":"오늘 하루의 큰 그림","body":"오늘은 새로 구상하는 것보다 이미 하던 일을 끝까지 만들어 내놓는 데 운이 실린다. 기세가 밖으로 뻗는 날은 아니다. 조용히 쌓고 정리하는 일이 잘 맞는다. 자료 정리, 밀린 메일 답장, 계약서나 약관 다시 읽기 같은 일을 하기 좋다.\n\n예전에 하다 만 일이나 접어 둔 계획이 문득 떠오를 수 있다. 오늘 떠오른 것은 쓸모가 있으니 흘려보내지 말고 메모해 둔다."},{"title":"회사에서","body":"결과물을 내놓으면 반응이 온다. 보고서 제출, 발표, 자료 공유 모두 무난하다. 미뤄 둔 건을 오늘 마감하면 평가가 좋다.\n\n반대로 상사의 방식에 이의를 제기하는 일은 오늘은 피하는 편이 낫다. 내용보다 말투가 먼저 문제가 되기 쉬운 날이다. 꼭 해야 한다면 메신저보다 얼굴을 보고, 오후 5시 이후에 한다. 부탁이나 중요한 연락도 그 시간으로 미루면 한결 수월하다."},{"title":"돈","body":"오늘 다섯 가지 가운데 가장 좋다. 새 돈이 들어온다기보다 '받을 돈이 확정되는' 운이다. 경비 청구, 환급 신청, 연말정산 서류 챙기기, 가격 비교 같은 일을 하기 좋다.\n\n부부가 함께 쓰는 돈은 오늘 말로만 정하지 말고 숫자로 적어 둔다. 영지는 돈 앞에서 경쟁자가 붙기 쉬운 사주라, 기록이 곧 방패다."},{"title":"부부 사이","body":"오늘은 긴 대화보다 같이 먹는 밥이 통한다. 퇴근 후 저녁을 함께 챙기는 것이 가장 좋다.\n\n낮 1시에서 3시 사이에 꺼낸 서운한 이야기는 결론 없이 맴돌기 쉽다. 하고 싶은 말이 있으면 밤 9시 이후, 씻고 편해진 다음에 꺼낸다. 그 시간은 두 사람 모두에게 좋은 시간이다."},{"title":"건강","body":"기운이 계속 빠져나가는 날이라 오후에 갑자기 지칠 수 있다. 영지는 원래 충전이 더딘 체질이라 더 그렇다. 점심 뒤에 10분이라도 눈을 붙이거나 자리에서 일어나 걷는다.\n\n위와 장이 먼저 반응하는 날이다. 과식, 찬 음식, 늦은 야식은 피한다. 눈의 피로와 손발이 찬 것도 살핀다."},{"title":"이번 달과 올해","body":"11월은 책임과 관계 문제를 혼자 곱씹다가 스스로를 깎기 쉬운 달이다. 생각이 돌기 시작하면 몸을 먼저 움직이는 것이 약이다.\n\n2026년은 영지에게 든든한 지원군이 붙는 해다. 같은 편이 되어 주는 사람이 많고, 비어 있던 자리가 채워진다. 올해 시작한 일은 오늘 같은 날 형태를 잡아 두면 오래 간다."},{"title":"이름으로 본 오늘","body":"오늘은 흙의 기운이 넘치는 날이라 이름의 地(땅)는 이미 가득 찼다. 힘을 써야 할 글자는 榮(꽃 피는 나무)이다. 나무는 넘치는 흙을 눌러 주고 지친 불에 땔감을 댄다.\n\n초록이 보이는 자리에 앉고, 화분에 물을 주고, 종이책을 몇 쪽 읽는다. 오늘은 그것이 그대로 운을 여는 방법이다."}],"timeline":[{"time":"오전 9–11시","tone":"care","note":"이동과 일정 변경이 잦다. 서두르다 물건을 두고 오기 쉽다."},{"time":"오전 11–오후 1시","tone":"neutral","note":"약속은 잡되, 확정은 오후로 미룬다."},{"time":"오후 1–3시","tone":"care","note":"결정하기보다 혼자 하는 정리 작업에 쓴다."},{"time":"오후 5–7시","tone":"good","note":"오늘 가장 좋은 시간. 연락, 부탁, 정산."},{"time":"밤 9–11시","tone":"good","note":"쉬면서 기운을 되찾는 시간. 차분한 대화에 좋다."}],"lucky":{"color":"짙은 초록","direction":"동쪽","number":"3, 8","time":"오후 5–7시","item":"화분, 종이책, 따뜻한 차"},"caution":"상사나 가족에게 보내는 말은 한 번 고쳐서 보낸다."},"shinhyuk":{"summary":"오늘의 기운이 신혁이 타고난 '일하는 자리'의 기운과 똑같다. 늘 하던 일이 평소보다 무겁게, 그리고 중요하게 다가오는 날이다.","keywords":["본업 집중","꼼꼼함","중간에 쉬기"],"points":["좋은 점: 손에 익은 일의 완성도가 올라간다. 마감과 검토에 좋다.","조심할 점: 일이 쉬는 시간을 밀어낸다. 무리하기 쉽다.","가장 좋은 시간: 오후 5시–7시."],"scores":{"total":73,"love":70,"money":74,"work":82,"health":60},"sections":[{"title":"오늘 하루의 큰 그림","body":"새 일을 벌이기보다 하던 일을 반복해서 다지는 날이다. 같은 일을 또 하게 되어도 답답해할 것 없다. 오늘의 반복은 실력으로 남는다.\n\n큰 사건 없이 조용히 흘러가는 하루다. 다만 성과에 대한 칭찬은 오늘 바로 오지 않고 나중에 온다."},{"title":"회사에서","body":"오늘 다섯 가지 가운데 가장 좋다. 문서 마감, 자료 검토, 숫자 맞추기처럼 꼼꼼함이 필요한 일을 오늘에 몰아 두면 좋다. 평소 놓치던 실수가 눈에 잘 들어온다.\n\n오후 1시에서 3시 사이 회의에서는 일하는 방식을 두고 의견이 엇갈리기 쉽다. 그 자리에서 결론을 내려 하지 말고 '정리해서 다시 공유하겠다'로 넘긴다. 아침 7시에서 9시 사이, 출근길과 첫 메신저에서는 말이 날카롭게 나가지 않게 조심한다."},{"title":"돈","body":"큰 수입보다 정리에서 이득이 나는 날이다. 안 쓰는 구독 해지, 묵힌 포인트, 미뤄 둔 환급 신청 같은 것을 챙기기 좋다.\n\n돈과 관련된 결정은 오후 5시에서 7시 사이에 한다. 퇴근길에 부부가 같이 정하면 더 좋다."},{"title":"부부 사이","body":"오늘은 표현이 무뚝뚝해지기 쉽다. 마음이 없어서가 아니라 말로 잘 나오지 않는 날이다. 대신 행동은 잘 통한다. 저녁을 맡거나 귀찮은 집안일을 하나 대신 해 주는 것으로 충분하다.\n\n밤 9시 이후에는 마음에 있던 이야기를 꺼내기 좋다."},{"title":"건강","body":"겨울에 태어난 불이 겨울 같은 날을 만났다. 몸이 무겁고 아침에 일어나기 어렵다. 따뜻하게 입고, 점심 무렵 햇볕을 10분이라도 쬔다.\n\n할 수 있다고 해서 끝까지 밀지 말고 중간에 한 번 끊어 쉰다. 수면의 질과 눈의 피로를 살피고, 저녁 과식은 피한다."},{"title":"이번 달과 올해","body":"11월은 맡은 책임을 속으로만 지고 있다가 스스로 지치기 쉬운 달이다. 진행 상황을 말로 꺼내 나누면 짐이 준다.\n\n2026년은 신혁의 체력과 추진력에 힘이 실리는 해다. 다만 무리와 과로도 같이 온다. 올해 벌인 일의 속도가 적당한지 오늘 한번 점검해 볼 만하다."},{"title":"이름으로 본 오늘","body":"오늘이야말로 이름을 써야 하는 날이다. 흙에 덮여 움츠러든 불에게 伸은 '펴라'고 하고, 赫은 '환하게 빛나라'고 한다.\n\n어깨와 허리를 실제로 펴는 스트레칭, 밝은 조명 아래에서 일하기, 따뜻한 국물이 이름의 뜻을 몸으로 옮기는 방법이다. 묵묵히 한 일을 오늘 한 사람에게라도 보여 주면 赫의 몫을 한 것이다."}],"timeline":[{"time":"오전 7–9시","tone":"care","note":"아침에 말이 날카롭게 나가기 쉽다."},{"time":"오전 9–11시","tone":"neutral","note":"이동이 많지만 한 만큼 성과가 남는다."},{"time":"오후 1–3시","tone":"care","note":"회의에서 의견이 엇갈린다. 결론은 미룬다."},{"time":"오후 5–7시","tone":"good","note":"오늘 가장 좋은 시간. 돈과 관련된 결정."},{"time":"밤 9–11시","tone":"good","note":"속 이야기를 나누고 일찍 눕는다."}],"lucky":{"color":"붉은 벽돌색","direction":"남쪽","number":"2, 7","time":"오후 5–7시","item":"따뜻한 국물, 햇볕, 밝은 스탠드"},"caution":"할 수 있다는 이유로 끝까지 밀지 않는다. 중간에 한 번 쉰다."}},"couple":{"summary":"두 사람이 오늘의 기운을 똑같이 받는다. 둘 다 말수가 줄고 각자 회사 일에 파묻히기 쉬운 날이다. 퇴근 후 함께 먹는 저녁 한 끼가 오늘의 대화다.","score":77,"sections":[{"title":"오늘 두 사람 사이","body":"영지는 뭔가 꺼내 놓고 이야기하고 싶고, 신혁은 하던 일에 잠겨 있고 싶은 날이다. 영지가 말을 걸었을 때 신혁의 답이 느려도 무심해서가 아니라 오늘 기운이 그렇다.\n\n대신 실무에서는 손발이 잘 맞는다. 장보기, 집 정리, 다음 달 생활비 계획 같은 일을 같이 하면 금방 끝난다."},{"title":"함께하면 좋은 일","body":"오후 5시에서 7시는 두 사람 모두에게 오늘 가장 좋은 시간이다. 퇴근 시간을 맞춰 같이 저녁을 먹는다. 따뜻한 국물이 있는 음식이면 신혁의 몸도 데우고 영지의 속도 편하다.\n\n밤 9시 이후에는 가계부나 연말 계획처럼 차분한 이야기를 나누기 좋다."},{"title":"조심할 일","body":"오후 1시에서 3시 사이에 양가 부모님이나 집안일 이야기를 메신저로 꺼내면 엉뚱하게 번질 수 있다. 그 이야기는 저녁에 얼굴 보고 한다."},{"title":"아기 계획","body":"오늘은 두 사람 모두에게 '낳고 기르는 기운'이 겹친 날이다. 아기 이야기를 편하게 꺼내 보기에 좋은 날이다. 다만 둘 다 기운이 빠지는 날이기도 하니, 결론을 내려 하기보다 서로 어떤 마음인지 들어 보는 정도가 알맞다."}],"tip":"오늘은 상대가 쉴 수 있게 일을 하나 덜어 준다."}}}</script>
-<script>
-// 질문하기: 브라우저에서 Claude API(Messages)를 직접 부른다. 키는 localStorage 에만 둔다.
-(function () {
-  var MODEL = 'claude-opus-5-5';
-  var KEY_NAME = 'unse-api-key';
-  var $ = function (id) { return document.getElementById(id) };
-  var ctx = JSON.parse($('unse-context').textContent);
-  var log = $('ask-log'), form = $('ask-form'), input = $('ask-input'), send = $('ask-send'), status = $('ask-status');
-  var keyInput = $('ask-key'), settings = $('ask-settings');
-  var messages = [], busy = false;
-
-  var store = {
-    get: function () { try { return localStorage.getItem(KEY_NAME) || '' } catch (e) { return '' } },
-    set: function (v) { try { v ? localStorage.setItem(KEY_NAME, v) : localStorage.removeItem(KEY_NAME) } catch (e) {} },
-  };
-  var apiKey = store.get();
-  if (apiKey) keyInput.value = apiKey;
-
-  var SYSTEM = [
-    '당신은 부부인 김영지와 전신혁의 운세를 봐 주는 사주 상담가입니다.',
-    '아래 자료(두 사람의 상황, 사주 원국과 풀이, 이름 풀이, 오늘의 만세력 계산값, 오늘의 운세 글)만을 근거로 답하세요. 자료에 없는 사주 계산은 지어내지 말고, 모르면 모른다고 하세요.',
-    '말투: 쉬운 한국어로, 사주 용어와 간지 한자를 쓰지 말고 일상어로 풀어 주세요. 짧은 문장으로, 무엇을 하면 좋고 무엇을 조심할지 구체적으로 말하세요. 보통 서너 문단이면 충분합니다.',
-    '형식: 마크다운 기호(#, *, - 목록 등) 없이 줄글로만 쓰세요.',
-    '운세는 재미로 보는 것입니다. 건강, 돈, 법률처럼 중요한 결정은 운세를 근거로 단정하지 말고, 필요하면 전문가와 상의하라고 한 줄 덧붙이세요.',
-    '',
-    '<자료>',
-    JSON.stringify(ctx),
-    '</자료>',
-  ].join('\n');
-
-  function bubble(role, text) {
-    var el = document.createElement('div');
-    el.className = 'ask-msg ask-' + role;
-    var who = document.createElement('span'); who.className = 'ask-who'; who.textContent = role === 'user' ? '❯ 질문' : '✻ 답';
-    var body = document.createElement('p'); body.textContent = text;
-    el.appendChild(who); el.appendChild(body); log.appendChild(el);
-    return body;
-  }
-  function explain(statusCode, message) {
-    if (statusCode === 401) return 'API 키가 맞지 않습니다. 아래 "API 키 설정"에서 다시 넣어 주세요.';
-    if (statusCode === 403) return '이 키로는 요청할 권한이 없습니다. 키의 권한을 확인해 주세요.';
-    if (statusCode === 429) return '요청이 너무 많거나 한도를 넘었습니다. 잠시 뒤에 다시 물어봐 주세요.';
-    if (statusCode === 529 || statusCode >= 500) return 'Claude 쪽이 잠시 바쁩니다. 조금 뒤에 다시 물어봐 주세요.';
-    return '요청이 거절됐습니다: ' + (message || statusCode);
-  }
-
-  async function ask(question) {
-    if (busy) return;
-    if (!apiKey) { settings.open = true; keyInput.focus(); status.textContent = '먼저 API 키를 넣고 저장해 주세요.'; return }
-    busy = true; send.disabled = true; status.textContent = '답을 쓰는 중…';
-    bubble('user', question);
-    messages.push({ role: 'user', content: question });
-    var out = bubble('assistant', '');
-    var text = '', stopReason = null, failed = null;
-    try {
-      var res = await fetch('https://api.anthropic.com/v1/messages', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-          'x-api-key': apiKey,
-          'anthropic-version': '2023-06-01',
-          'anthropic-beta': 'server-side-fallback-2026-07-01',
-          'anthropic-dangerous-direct-browser-access': 'true',
-        },
-        body: JSON.stringify({
-          model: MODEL,
-          max_tokens: 16000,
-          stream: true,
-          output_config: { effort: 'medium' },
-          fallbacks: 'default',
-          cache_control: { type: 'ephemeral' },
-          system: SYSTEM,
-          messages: messages,
-        }),
-      });
-      if (!res.ok) {
-        var err = null; try { err = await res.json() } catch (e) {}
-        failed = explain(res.status, err && err.error && err.error.message);
-      } else {
-        var reader = res.body.getReader(), decoder = new TextDecoder(), buffer = '';
-        for (;;) {
-          var chunk = await reader.read();
-          if (chunk.done) break;
-          buffer += decoder.decode(chunk.value, { stream: true });
-          var lines = buffer.split('\n'); buffer = lines.pop();
-          for (var i = 0; i < lines.length; i++) {
-            var line = lines[i];
-            if (line.indexOf('data:') !== 0) continue;
-            var ev; try { ev = JSON.parse(line.slice(5)) } catch (e) { continue }
-            if (ev.type === 'content_block_delta' && ev.delta && ev.delta.type === 'text_delta') { text += ev.delta.text; out.textContent = text }
-            else if (ev.type === 'message_delta' && ev.delta && ev.delta.stop_reason) stopReason = ev.delta.stop_reason;
-            else if (ev.type === 'error') failed = explain(ev.error && ev.error.type === 'overloaded_error' ? 529 : 0, ev.error && ev.error.message);
-          }
-        }
-      }
-    } catch (e) {
-      failed = '연결하지 못했습니다. 인터넷 연결을 확인하고 다시 물어봐 주세요.';
-    }
-    if (!failed && stopReason === 'refusal') failed = '이 질문에는 답하지 못했습니다. 다르게 물어봐 주세요.';
-    if (!failed && !text) failed = '답이 비어 있습니다. 다시 물어봐 주세요.';
-    if (failed) {
-      messages.pop();
-      if (text) { out.textContent = text + '\n\n(' + failed + ')' } else { out.parentNode.classList.add('ask-error'); out.textContent = failed }
-      status.textContent = '';
-    } else {
-      messages.push({ role: 'assistant', content: text });
-      status.textContent = stopReason === 'max_tokens' ? '답이 길어서 중간에 끊겼습니다.' : '';
-    }
-    busy = false; send.disabled = false;
-  }
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var q = input.value.trim();
-    if (!q || busy) return;
-    if (apiKey) input.value = '';
-    ask(q);
-  });
-  input.addEventListener('keydown', function (e) {
-    if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); form.requestSubmit() }
-  });
-  document.querySelectorAll('.ask-chips button').forEach(function (b) {
-    b.addEventListener('click', function () { input.value = b.dataset.q; form.requestSubmit() });
-  });
-  $('ask-key-save').addEventListener('click', function () {
-    apiKey = keyInput.value.trim(); store.set(apiKey);
-    status.textContent = apiKey ? '키를 저장했습니다.' : '키를 넣어 주세요.';
-    if (apiKey) settings.open = false;
-  });
-  $('ask-key-clear').addEventListener('click', function () {
-    apiKey = ''; keyInput.value = ''; store.set(''); status.textContent = '키를 지웠습니다.';
-  });
 })();
 </script>
 </html>
