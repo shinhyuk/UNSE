@@ -32,3 +32,5 @@
 6. `data/`, `site/`, `docs/` 변경을 커밋하고 `git push -u origin claude/relaxed-cerf-ves498`. PR 은 만들지 않는다.
 
 GitHub Pages 는 GitHub Actions(`.github/workflows/pages.yml`)로 게시한다. 푸시하면 워크플로가 페이지를 빌드해 올린다.
+7. 푸시 2~3분 뒤 `curl -s "https://shinhyuk.github.io/UNSE/?t=$(date +%s)" | grep -o 'data-date="[0-9-]*"' | head -1` 로 사이트에 오늘 날짜가 떴는지 확인한다.
+   안 떴으면 GitHub Actions 실행 기록과 로그를 보고 원인을 고친 뒤 다시 푸시한다.
